@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+body {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url(../images/background2.jpg);
+
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.1em #2b2726;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+a {
+  color: transparent;
+}
+
+textarea {
+  width: 100%;
+  border: 0px solid transparent;
+  outline: none;
+  font-size: 16px;
+  resize: none;
+}
+
+textarea:hover {
+  cursor: pointer;
+}
+
+textarea:focus {
+  cursor: text;
+}
+
+.justify-content {
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.header {
+  color: white;
+  justify-content: space-evenly;
+}
+
+.header-logo {
+  font-size: 32px;
+  text-shadow: 0.1em 0.1em 0.1em #2b2726;
+}
+
+.header-button {
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: 5px;
+  font-family: "Poppins";
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 30px;
+  text-shadow: 0.1em 0.1em 0.1em #2b2726;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.header-button:hover {
+  background-color: #6f5d6c;
+}
+
+.flex {
+  display: flex;
+}
+
+.home-body {
+  color: white;
+  margin-top: 110px;
+}
+
+.home-body-title {
+  text-align: center;
+}
+
+.home-body-text {
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.home-body-button {
+  color: white;
+  font-size: 16px;
+  background-color: #4d1e4d;
+  border-radius: 10px;
+  height: 45px;
+  width: 130px;
+  font-family: "Poppins";
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.home-body-button:hover {
+  background-color: #75436b;
+}
+
+.home-body-button-div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card {
+  width: 250px;
+  height: 200px;
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 2px 2px 5px 0 #181616;
+  color: #160921;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card-text {
+  background-color: #585057;
+  text-shadow: 0.1em 0.1em 0.1em #60525a;
+  color: white;
+  height: 60px;
+  width: 250px;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  box-shadow: 2px 2px 5px 0 #181616;
+}
+
+.inicio-body {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.img-arvore {
+  width: 80%;
+  margin-top: 25px;
+}
+
+.img-vetores {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  width: 100%;
+  heigth: 90%;
+}
+
+.img-lista {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  width: 100%;
+  heigth: 90%;
+}
+
+.img-lista2 {
+  margin-right: 30px;
+}
+
+.accordion {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  margin-top: 70px;
+}
+
+.accordion-item {
+  background-color: white;
+  color: #160921;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.accordion-item-header {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: #1c1c1c;
+  text-shadow: 0.1em 0.1em 0.1em #d2cbcf;
+}
+
+.accordion-item-header::after {
+  content: "\002B";
+  font-size: 1.5rem;
+  position: absolute;
+  right: 2rem;
+}
+
+.accordion-item-header.active::after {
+  content: "\2212";
+}
+
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: #160921;
+}
+
+.accordion-item-body-content {
+  padding: 2rem;
+  line-height: 1.5rem;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, #4d1e4d, transparent) 1;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+.codeEditor{
+  background-color: white;
+  width: 50%;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+#canvasContainer {
+  width: 50%;
+  background-color: white;
+  border-radius: 5px;
+}

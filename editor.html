@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Visualearn</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="js/p5.js"></script>
+    <script src="js/list.js"></script>
+  </head>
+  <body>
+    <div>
+      <div class="flex header space-between">
+        <h1 class="header-logo">Visualearn</h1>
+        <div>
+          <a class="links" href="index.html">
+            <button class="header-button">Início</button>
+          </a>
+          <a class="links" href="editor.html">
+            <button class="header-button">Editor</button>
+          </a>
+          <a class="links" href="menu.html">
+            <button class="header-button">Primeiros passos</button>
+          </a>
+          <a class="links" href="exemplos.html">
+            <button class="header-button">Exemplos</button>
+          </a>
+        </div>
+      </div>
+      <div class="flex justify-content">
+        <div class="codeEditor">
+          <div class="codeEditor" id="codeHeader"></div>
+          <textarea rows="15" onkeydown="tabEditor(this, event)" ></textarea>
+          <div class="codeEditor">}</div>
+        </div>
+        <div id="canvasContainer">
+          <main></main>
+          <div id="sketchBtns"></div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <script src="js/sketch.js"></script>
+    <script src="js/editorControl.js"></script>
+  </body>
+</html>
