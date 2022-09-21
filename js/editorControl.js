@@ -38,6 +38,14 @@ window.onload = () => {
     moveP5Btns()
 }
 
+function updateCustomFunc(){
+    let textAreaValue = document.getElementById("textarea").value
+    let prefix = dsData[getDS()].codeHeader
+    let suffix = "}"
+    let funcCode = prefix + textAreaValue + suffix
+    window.nextFunc = eval(funcCode)
+}
+
 function tabEditor(element, event) {
     let code = element.value
     if(event.key == "Tab") {

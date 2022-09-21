@@ -1,6 +1,6 @@
 let canvasContainer = document.getElementById("canvasContainer")
 let canvasW = canvasContainer.offsetWidth
-let canvasH = canvasContainer.offsetHeight
+let canvasH = canvasContainer.offsetHeight - 45
 
 function startOrdenaArray(func, data){
   var sketch = function(p){
@@ -141,7 +141,7 @@ function startLinkedList() {
       list = new LinkedList(p, canvasW, canvasH, false)
       list.setDisplayArrayFromArr(arr)
 
-      nextBtn = p.createButton("Próximo Passo")
+      nextBtn = p.createButton("Executar")
       nextBtn.class("p5Btn")
       //nextBtn.position(10, 400, 'relative')
 

@@ -3,8 +3,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Visualearn</title>
-    <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <script src="js/p5.js"></script>
     <script src="js/list.js"></script>
   </head>
@@ -29,13 +29,16 @@
       </div>
       <div class="flex justify-content">
         <div class="codeEditor">
-          <div class="codeEditor" id="codeHeader"></div>
-          <textarea rows="15" onkeydown="tabEditor(this, event)" ></textarea>
-          <div class="codeEditor">}</div>
+          <div class="" id="codeHeader"></div>
+          <textarea rows="16" onkeydown="tabEditor(this, event)" id="textarea"></textarea>
+          <div class="">}</div>
+          <div style="margin-top: 5px;" class="sketchBtns">
+            <button class="customBtn" onclick="updateCustomFunc()" type="button">Concluir</button>
+          </div>
         </div>
         <div id="canvasContainer">
           <main></main>
-          <div id="sketchBtns"></div>
+          <div class="sketchBtns" id="sketchBtns"></div>
         </div>
       </div>
     </div>

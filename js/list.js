@@ -5,15 +5,15 @@ class LinkedList {
         this.width = width
         this.height = height
         this.doubleLinked = doubleLinked
-        this.raiz = null
+        this.cabeca = null
     }
 
     setDisplayArrayFromArr(arr){
         if(arr.length < 1)
             return
-        this.raiz = new Node(arr[0])
+        this.cabeca = new Node(arr[0])
 
-        let currentNode = this.raiz
+        let currentNode = this.cabeca
 
         for(let i = 1; i < arr.length; i++){
             currentNode.addProximo(new Node(arr[i]))
@@ -23,9 +23,9 @@ class LinkedList {
 
     arrayFromListNode(){
         let arr = []
-        let currentNode = this.raiz
+        let currentNode = this.cabeca
         while(currentNode != null){
-            arr.push(currentNode.value)
+            arr.push(currentNode.valor)
             currentNode = currentNode.proximo
         }
         return arr
@@ -84,7 +84,7 @@ class LinkedList {
 
             //se é o primeiro nó
             if(i == 0){
-                this.p5.text("Raiz", x, y + 30)
+                this.p5.text("Cabeça", x, y + 35)
             }
 
             this.p5.pop()
@@ -95,7 +95,7 @@ class LinkedList {
 class Node {
 
     constructor(value){
-        this.value = value
+        this.valor = value
         this.proximo = null
     }
 
