@@ -2,6 +2,10 @@ let dsData = {
     listaLigada: {
         codeHeader: "(lista) => {",
         func: startLinkedList
+    },
+    vetor: {
+        codeHeader: "(vetor, dados) => {",
+        func: startArray
     }
 }
 
@@ -39,11 +43,16 @@ window.onload = () => {
 }
 
 function updateCustomFunc(){
-    let textAreaValue = document.getElementById("textarea").value
+    let funcTextAreaValue = document.getElementById("funcTextarea").value
     let prefix = dsData[getDS()].codeHeader
     let suffix = "}"
-    let funcCode = prefix + textAreaValue + suffix
+    let funcCode = prefix + funcTextAreaValue + suffix
+    
     window.nextFunc = eval(funcCode)
+
+    let dataTextAreaValue = document.getElementById("dataTextarea").value
+    eval("window.customData = {" + dataTextAreaValue + "}")
+    window.setUpdateCustomFunc = true
 }
 
 function tabEditor(element, event) {
@@ -56,6 +65,6 @@ function tabEditor(element, event) {
         element.value = before_tab + "\t" + after_tab
         element.selectionStart = cursor_pos
         element.selectionEnd = cursor_pos
-        update(element.value)
+        //update(element.value)
     }
 }
