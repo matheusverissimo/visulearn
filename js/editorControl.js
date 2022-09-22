@@ -6,6 +6,14 @@ let dsData = {
     vetor: {
         codeHeader: "(vetor, dados) => {",
         func: startArray
+    },
+    grafo: {
+        codeHeader: "(grafo) => {",
+        func: startGraph
+    },
+    arvore: {
+        codeHeader: "(arvore, dados) => {",
+        func: startTree
     }
 }
 
@@ -65,6 +73,5 @@ function tabEditor(element, event) {
         element.value = before_tab + "\t" + after_tab
         element.selectionStart = cursor_pos
         element.selectionEnd = cursor_pos
-        //update(element.value)
     }
 }

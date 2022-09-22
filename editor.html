@@ -8,6 +8,8 @@
     <script src="js/p5.js"></script>
     <script src="js/list.js"></script>
     <script src="js/arrays.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/tree.js"></script>
   </head>
   <body>
     <div>
@@ -32,38 +34,12 @@
         <div class="codeEditorContainer">
           <div class="codeEditor" style="margin-bottom:20px ;">
             <div>{</div>
-            <textarea rows="1" placeholder="        i: 0, j: 0" onkeydown="tabEditor(this, event)" id="dataTextarea">i: 1, j: 1, midsorting: false</textarea>
+            <textarea rows="1" placeholder="        i: 0, j: 0" onkeydown="tabEditor(this, event)" id="dataTextarea"></textarea>
             <div>}</div>
           </div>
           <div class="codeEditor">
             <div id="codeHeader"></div>
-            <textarea rows="12" onkeydown="tabEditor(this, event)" id="funcTextarea">dados.selectedItemsIndex = []
-              if(dados.i >= vetor.length){
-                dados.complete = true
-                return
-              }
-          
-              if (!dados.midsorting) {
-                dados.j = dados.i;
-              }
-          
-              if (dados.j > 0 && vetor[dados.j] < vetor[dados.j-1]) {
-                dados.selectedItemsIndex.push(dados.j, dados.j - 1)
-                dados.numberOfComparisons++
-                dados.midsorting = true;
-          
-                var temp = vetor[dados.j-1];
-                vetor[dados.j-1] = vetor[dados.j];
-                vetor[dados.j] = temp;
-                
-                dados.j--;
-              } else {
-                dados.midsorting = false;
-              }
-          
-              if (!dados.midsorting) {
-                dados.i++;
-              }</textarea>
+            <textarea rows="12" onkeydown="tabEditor(this, event)" id="funcTextarea"></textarea>
             <div>}</div>
             <div style="margin-top: 5px;" class="sketchBtns">
               <button class="customBtn" onclick="updateCustomFunc()" type="button">Concluir</button>

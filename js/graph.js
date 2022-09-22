@@ -5,9 +5,9 @@ class Graph {
         this.width = width
         this.height = height
         this.nodes = []
-        for(let i = 0; i < numberOfNodes; i++){
-            this.addNode(this.p5.ceil(this.p5.random(5, 20)))
-        }
+        // for(let i = 0; i < numberOfNodes; i++){
+        //     this.addNode(this.p5.ceil(this.p5.random(5, 20)))
+        // }
     }
 
     addNode(value){
@@ -17,7 +17,7 @@ class Graph {
 
         for(let j = 0; j < this.nodes.length; j++){
             let dist = this.p5.dist(x, y, this.nodes[j].x, this.nodes[j].y)
-            if(dist < 150){
+            if(dist < 100){
                 validPos = false
             }
         }
@@ -52,7 +52,7 @@ class Graph {
             this.p5.push()
             this.p5.fill(150)
             this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
-            this.p5.ellipse(currentNode.x, currentNode.y, currentNode.value * 3)
+            this.p5.ellipse(currentNode.x, currentNode.y, currentNode.value * 5)
             this.p5.fill(255)
             this.p5.text(currentNode.value, currentNode.x, currentNode.y)
             this.p5.pop()

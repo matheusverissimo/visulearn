@@ -25,7 +25,7 @@ function startArray(){
         window.autoUpdate = !window.autoUpdate
       })
 
-      //
+      //Para chamar manualmente o update
       let controlledUpdateBtn = p.createButton('Próximo Passo')
       controlledUpdateBtn.class("p5Btn")
       controlledUpdateBtn.mousePressed(() => {
@@ -77,30 +77,38 @@ function startBuscaArray(func, data){
   let myp5 = new p5(sketch)
 }
 
-function startSearchInTree(func, data){
+function startTree(){
 
   var sketch = function(p){
     
     let tree
     
     p.setup = function (){
-      p.createCanvas(p.windowWidth, p.windowHeight)
-     
-      tree = new Tree(p, 900, 700)
+      p.createCanvas(canvasW, canvasH)
+      p.frameRate(1)
+      
+      tree = new Tree(p, canvasW, canvasH)
       for(let i = 0; i < 20; i++){
         tree.addValue(p.floor(p.random(1, 50)))
       }
-      tree.setCustomFunc(func, data)
+
+      let updateBtn = p.createButton("Próximo")
+      updateBtn.class("p5Btn")
+
+      window.nextFunc = () => {}
+      window.customData = {}
+
+      updateBtn.mousePressed(() => {
+        window.nextFunc(tree.raiz, window.customData)
+      })
     }
     
     p.draw = function (){
+
+      
+
       p.background(255)
       tree.display()
-    }
-
-    p.keyPressed = function (){
-      if(p.keyCode == 68 && !tree.isSearchComplete())
-        tree.customFuncNextStep()
     }
   }
 
@@ -131,15 +139,19 @@ function startHeap(func, data){
   let myp5 = new p5(sketch)
 }
 
-function startGraph(func, data) {
+function startGraph() {
   var sketch = function(p){
   
     let graph
 
     p.setup = function (){
-      p.createCanvas(p.windowWidth, p.windowHeight)
+      p.createCanvas(canvasW, canvasH)
 
-      graph = new Graph(p, 8, p.windowWidth - 200, p.windowHeight - 200)
+      let arr = [20,10,13,9,12,3,5]
+
+      graph = new Graph(p, 8, canvasW, canvasH)
+      for(let e of arr)
+        graph.addNode(e)
       graph.connectNodesRandomly()
       graph.display()
 
@@ -167,7 +179,6 @@ function startLinkedList() {
 
       nextBtn = p.createButton("Executar")
       nextBtn.class("p5Btn")
-      //nextBtn.position(10, 400, 'relative')
 
       window.nextFunc = () => {}
 
