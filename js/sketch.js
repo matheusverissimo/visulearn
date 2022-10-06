@@ -1,12 +1,13 @@
 let canvasContainer = document.getElementById("canvasContainer")
 let canvasW = canvasContainer.offsetWidth
-let canvasH = canvasContainer.offsetHeight - 90
+let canvasH = canvasContainer.offsetHeight - 45
 
 function startArray(){
   var sketch = function(p){
     p.list = null
 
     p.setup = function() {
+      canvasH -= 45
       p.createCanvas(canvasW, canvasH)
       let arr = [3,8,5,3,8,1,3,9,7,6]
       list = new Array_(p, arr, canvasW, canvasH, true)
@@ -197,10 +198,13 @@ function startLinkedList() {
       nextBtn.class("p5Btn")
 
       window.nextFunc = () => {}
+      window.customData = {}
 
       nextBtn.mousePressed(() => {
-        window.nextFunc(list)
+        window.nextFunc(list, customData)
       })
+
+      p.frameRate(5)
     }
     
     p.draw = function (){

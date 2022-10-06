@@ -1,6 +1,6 @@
 let dsData = {
     listaLigada: {
-        codeHeader: "(lista) => {",
+        codeHeader: "(lista, dados) => {",
         func: startLinkedList
     },
     vetor: {
