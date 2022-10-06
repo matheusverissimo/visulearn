@@ -91,10 +91,6 @@ class Array_ {
         }
     }
 
-    isComplete(){
-        return this.updateFuncData.complete
-    }
-
     resetCustomFuncData(){
         this.updateFuncData = {
             // Array que guarda index dos elementos sendo comparados (para serem destacados)

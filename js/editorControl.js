@@ -36,18 +36,28 @@ function configByDS(ds) {
     setSketchFunc(ds)
 }
 
-function moveP5Btns(){
+function moveP5Inputs(){
+    let inputsDiv = document.getElementById("sketchInputs")
+    let inputs = document.getElementsByClassName("p5Input")
+
+    for(let input of inputs)
+        inputsDiv.appendChild(input)
+}
+
+function moveP5Controls(){
+    let controlsDiv = document.getElementById("sketchControls")
+
     let btns = document.getElementsByClassName("p5Btn")
-    let btnsDiv = document.getElementById("sketchBtns")
     for(let node of btns)
-        btnsDiv.appendChild(node)
+        controlsDiv.appendChild(node)
 }
 
 window.onload = () => {
     let ds = getDS()
     configByDS(ds)
     window.customSketch()
-    moveP5Btns()
+    moveP5Inputs()
+    moveP5Controls()
 }
 
 function updateCustomFunc(){

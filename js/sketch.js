@@ -1,6 +1,6 @@
 let canvasContainer = document.getElementById("canvasContainer")
 let canvasW = canvasContainer.offsetWidth
-let canvasH = canvasContainer.offsetHeight - 45
+let canvasH = canvasContainer.offsetHeight - 90
 
 function startArray(){
   var sketch = function(p){
@@ -9,16 +9,17 @@ function startArray(){
     p.setup = function() {
       p.createCanvas(canvasW, canvasH)
       let arr = [3,8,5,3,8,1,3,9,7,6]
-      list = new Array_(p, arr, canvasW, canvasH)
+      list = new Array_(p, arr, canvasW, canvasH, true)
 
       // Para setar funcao custom
       window.nextFunc = () => {}
       window.customData = {}
       window.setUpdateCustomFunc = false
+      window.customFuncWasSet = false
       list.setCustomUpdateFunc(window.nextFunc, window.customData)
       
       //Para controlar se o update é automatico baseado no framerate
-      window.autoUpdate = true
+      window.autoUpdate = false
       let autoUpdateBtnc =  p.createButton('Atualizar automaticamente')
       autoUpdateBtnc.class("p5Btn")
       autoUpdateBtnc.mousePressed(()=> {
@@ -32,7 +33,21 @@ function startArray(){
         list.nextStep()
       })
 
-      p.frameRate(5)
+      //Para pegar input do usuario
+      let vetorInputado = []
+      let inputVetor = p.createInput('')
+      inputVetor.class('p5Input')
+      inputVetor.input(() => {
+        let stringArr = inputVetor.value().split(",")
+        let numArr = stringArr.map(s => parseInt(s)).filter(Boolean)
+        if(numArr.length > 0)
+          vetorInputado = numArr
+        else 
+          vetorInputado = []
+        list = new Array_(p, vetorInputado, canvasW, canvasH, true)
+      })
+
+      p.frameRate(2)
     }
     
     p.draw = function() {
@@ -40,10 +55,11 @@ function startArray(){
       if(window.setUpdateCustomFunc){
         list.setCustomUpdateFunc(window.nextFunc, window.customData)
         window.setUpdateCustomFunc = false
+        window.customFuncWasSet = true
       }
       p.background(255)
       list.display()
-      if(!list.isComplete() && window.autoUpdate)
+      if(window.autoUpdate && window.customFuncWasSet)
         list.nextStep()
     }
   }
