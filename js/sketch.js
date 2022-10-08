@@ -28,7 +28,7 @@ function startArray(){
       })
 
       //Para chamar manualmente o update
-      let controlledUpdateBtn = p.createButton('Próximo Passo')
+      let controlledUpdateBtn = p.createButton('Executar')
       controlledUpdateBtn.class("p5Btn")
       controlledUpdateBtn.mousePressed(() => {
         list.nextStep()

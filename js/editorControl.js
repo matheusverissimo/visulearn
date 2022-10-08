@@ -11,7 +11,7 @@ let dsData = {
         func: startArray,
         pageInfo: {
             title: "Vetores",
-            text: "Um vetor é uma sequência de variáveis de mesmo tipo e referenciadas por um nome único. As principais características de vetores em C são:<ul style='padding-left: 1rem'> <li>Os valores são acessíveis individualmente através de índices;</li><li>Os elementos do vetor ocupam posições contíguas de memória;</li><li>Os vetores têm tamanho predefinido e fixo;</li><li>Ao contrário de Pascal, o índice do primeiro elemento é 0(zero).</li></ul>",
+            text: "Um vetor é uma sequência de variáveis de mesmo tipo e referenciadas por um nome único. As principais características de vetores em são:<ul style='padding-left: 1rem'> <li>Os valores são acessíveis individualmente através de índices;</li><li>Os elementos do vetor ocupam posições contíguas de memória;</li><li>Os vetores têm tamanho predefinido e fixo;</li><li>O índice do primeiro elemento é 0 (zero).</li></ul>",
             imageSrc: "./images/vetores.png",
             apiData: [
                 {
