@@ -47,6 +47,7 @@ function startArray(){
         else 
           vetorInputado = []
         list = new Array_(p, vetorInputado, canvasW, canvasH, true)
+        list.setCustomUpdateFunc(window.nextFunc, window.customData)
       })
 
       p.frameRate(2)

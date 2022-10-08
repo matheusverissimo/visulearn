@@ -48,7 +48,7 @@ class Array_ {
         this.p5.translate(this.width/2 - this.getWidth()/2, this.height/2)
         if(this.direction == "V"){
             this.p5.translate(this.getWidth() / 2, - (this.getWidth() / 2))
-            this.p5.angleMode(DEGREES)
+            this.p5.angleMode(this.p5DEGREES)
             this.p5.rotate(90)
         }
         for(let i of this.listItems) i.display()

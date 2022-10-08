@@ -3,7 +3,38 @@ let dsData = {
         codeHeader: "(lista, dados) => {",
         func: startLinkedList,
         pageInfo: {
-            title: "Lista Ligada"
+            title: "Lista Ligada",
+            text: "As listas são estruturas de dados muito utilizadas. Uma lista é, na verdade, um conjunto de estruturas chamadas “nós”. </br> Um nó é uma estrutura que armazena a informação a ser gerenciada por uma lista. Existem dois principais tipos de listas: ligadas e duplamente ligadas.</br> Cada um dos nós de uma lista ligada, além de conhecer o valor que está sendo armazenado em seu interior, também conhece o elemento posterior a ele: por isso ela é chamada de “lista ligada”, pois os nós são amarrados com essa indicação de qual é o próximo nó.",
+            imageSrc: "./images/listaligada.png",
+            apiData: [
+                {
+                    name: "Estrutura: Lista",
+                    content: [
+                        "Estrutura que representa uma lista ligada.",
+                        "Sua única propriedade acessível é a \"cabeca\", que é uma referência para o primeiro nó."
+                    ]
+                },
+                {
+                    name: "Estrutura: Nó",
+                    content: [
+                        "Estrutura que contém um valor e possui uma referência para o próximo nó.",
+                        "O seu valor está contido na propriedade \"valor\", e a referência para o próximo está na propriedade \"proximo\"",
+                        "Para instânciar um novo nó, basta usar o método No(valor)."
+                    ]
+                },
+                {
+                    name: "Parâmetro: lista",
+                    content: [
+                        "Objeto que referencia a lista renderizada."
+                    ]
+                },
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+            ]
         }
     },
     vetor: {
