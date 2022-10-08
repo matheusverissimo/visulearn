@@ -287,3 +287,8 @@ textarea:focus {
   border: 2px solid white;
   cursor: pointer;
 }
+
+.list-group-item.active{
+  background-color: #4d1e4d !important;
+  border-color: #4d1e4d !important;
+}
