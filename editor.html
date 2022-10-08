@@ -10,10 +10,11 @@
     <script src="js/arrays.js"></script>
     <script src="js/graph.js"></script>
     <script src="js/tree.js"></script>
+    <script src="./js/main.js" defer></script>
   </head>
   <body>
-    <div>
-      <div class="flex header space-between">
+    <div class="mx-auto">
+      <div class="flex header space-between align-items-center">
         <h1 class="header-logo">VisuLearn</h1>
         <div>
           <a class="links" href="index.html">
@@ -30,26 +31,35 @@
           </a>
         </div>
       </div>
-      <div class="flex justify-content">
-        <div class="codeEditorContainer">
-          <div class="codeEditor" style="margin-bottom:20px ;">
-            <div>{</div>
-            <textarea rows="1" placeholder="        i: 0, j: 0" onkeydown="tabEditor(this, event)" id="dataTextarea"></textarea>
-            <div>}</div>
-          </div>
-          <div class="codeEditor">
-            <div id="codeHeader"></div>
-            <textarea rows="12" onkeydown="tabEditor(this, event)" id="funcTextarea"></textarea>
-            <div>}</div>
-            <div style="margin-top: 5px;" class="sketchBtns">
-              <button class="customBtn" onclick="updateCustomFunc()" type="button">Concluir</button>
+      <div class="mx-auto" style="max-width: 1500px;">
+        <div class="accordion-item mx-3">
+          <div class="accordion-item-header" id="tituloDS"></div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content" id="textoDS">
             </div>
           </div>
         </div>
-        <div id="canvasContainer">
-          <div class="sketchBtns" id="sketchInputs"></div>
-          <main></main>
-          <div class="sketchBtns" id="sketchControls"></div>
+        <div class="flex justify-content mt-2 mx-3">
+          <div class="codeEditorContainer">
+            <div class="codeEditor mb-3">
+              <div>{</div>
+              <textarea rows="1" placeholder="        i: 0, j: 0" onkeydown="tabEditor(this, event)" id="dataTextarea"></textarea>
+              <div>}</div>
+            </div>
+            <div class="codeEditor">
+              <div id="codeHeader"></div>
+              <textarea rows="13" onkeydown="tabEditor(this, event)" id="funcTextarea"></textarea>
+              <div>}</div>
+              <div class="sketchBtns">
+                <button class="customBtn" onclick="updateCustomFunc()" type="button">Concluir</button>
+              </div>
+            </div>
+          </div>
+          <div id="canvasContainer">
+            <div class="sketchBtns" id="sketchInputs"></div>
+            <main></main>
+            <div class="sketchBtns" id="sketchControls"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -57,5 +67,6 @@
     
     <script src="js/sketch.js"></script>
     <script src="js/editorControl.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
