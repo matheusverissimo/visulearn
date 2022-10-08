@@ -17,15 +17,15 @@ let dsData = {
                 {
                     name: "Parâmetro: vetor",
                     content: [
-                        "Contém o objeto do tipo Array com os valores do vetor a ser manipulado.",
-                        "O valor inicial pode ser alterado ao inserir os valores númericos inteiros separados por vírgula no campo \"valores\"."
+                        "Contém o objeto do tipo Array com os valores do vetor a ser manipulado. Como por exemplo: [2,8,5,3,8,1,3,9,7,6].",
+                        "O acesso aos elementos se dá na seguinte forma: vetor[0] (Para acessar o primeiro elemento).",
+                        "O valor inicial pode ser alterado ao inserir os valores númericos inteiros separados por vírgula no campo \"Valores\".s"
                     ]
                 },
                 {
                     name: "Parâmetro: dados",
                     content: [
-                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada.",
-                        "O objeto possui as seguintes propriedades especiais para adicionais itens-controle da renderização:"
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
                     ]
                 },
             ]
@@ -114,7 +114,7 @@ function configByDS(ds) {
 
 function moveP5Inputs(){
     let inputsDiv = document.getElementById("sketchInputs")
-    let inputs = document.getElementsByClassName("p5Input")
+    let inputs = document.getElementsByClassName("placeTop")
 
     for(let input of inputs)
         inputsDiv.appendChild(input)
@@ -123,7 +123,7 @@ function moveP5Inputs(){
 function moveP5Controls(){
     let controlsDiv = document.getElementById("sketchControls")
 
-    let btns = document.getElementsByClassName("p5Btn")
+    let btns = document.getElementsByClassName("placeBot")
     for(let node of btns)
         controlsDiv.appendChild(node)
 }

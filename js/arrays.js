@@ -32,17 +32,10 @@ class Array_ {
         os steps da função de ordenação customizada (ex.: indexes de loops, indexes 
         dos itens sendo comparados e swapados, etc.)
         */
-        this.updateFuncData = {
-            // Array que guarda index dos elementos sendo comparados (para serem destacados)
-            selectedItemsIndex: [],
-            // Flag aux para dividir steps do bubble sort entre comparação e swap
-            comparing: true,
-            // Contador de comparações
-            numberOfComparisons: 0,
-            // Flag ordenado
-            sorted: false
-        }
-        this.shouldDisplayComparisons = true
+        this.updateFuncData = {}
+        //Para mostrar a quantidade de vezes que a função foi chamada
+        this.shouldDisplayComparisons = false
+        this.numberOfComparisons = 0
 
         this.maxValue = p.max(array)
         this.updateListItems()
@@ -50,9 +43,6 @@ class Array_ {
 
     display(){
         this.p5.push()
-        for(let i of this.updateFuncData.selectedItemsIndex){
-            this.listItems[i].selected = true
-        }
         if(this.shouldDisplayComparisons)
             this.displayComparisons()
         this.p5.translate(this.width/2 - this.getWidth()/2, this.height/2)
@@ -62,9 +52,6 @@ class Array_ {
             this.p5.rotate(90)
         }
         for(let i of this.listItems) i.display()
-        for(let i of this.updateFuncData.selectedItemsIndex){
-            this.listItems[i].selected = false
-        }
         this.p5.pop()
     }
 
@@ -92,28 +79,20 @@ class Array_ {
     }
 
     resetCustomFuncData(){
-        this.updateFuncData = {
-            // Array que guarda index dos elementos sendo comparados (para serem destacados)
-            selectedItemsIndex: [],
-            // Flag aux para dividir steps do bubble sort entre comparação e swap
-            comparing: true,
-            // Contador de comparações
-            numberOfComparisons: 0,
-            // Flag ordenado
-            complete: false
-        }
+        this.updateFuncData = {}
     }
 
     nextStep(){
         this.customUpdateFunc(this.array, this.updateFuncData)
         this.updateListItems()
+        this.numberOfComparisons++
     }
 
     displayComparisons(){
         this.p5.push()
         this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
         this.p5.textSize(32)
-        this.p5.text(this.updateFuncData.numberOfComparisons, this.width/2, 30)
+        this.p5.text(this.numberOfComparisons, this.width/2, 30)
         this.p5.pop()
     }
     

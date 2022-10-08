@@ -22,14 +22,14 @@ function startArray(){
       //Para controlar se o update é automatico baseado no framerate
       window.autoUpdate = false
       let autoUpdateBtnc =  p.createButton('Atualizar automaticamente')
-      autoUpdateBtnc.class("p5Btn")
+      autoUpdateBtnc.class("placeBot")
       autoUpdateBtnc.mousePressed(()=> {
         window.autoUpdate = !window.autoUpdate
       })
 
       //Para chamar manualmente o update
       let controlledUpdateBtn = p.createButton('Executar')
-      controlledUpdateBtn.class("p5Btn")
+      controlledUpdateBtn.class("placeBot")
       controlledUpdateBtn.mousePressed(() => {
         list.nextStep()
       })
@@ -37,7 +37,8 @@ function startArray(){
       //Para pegar input do usuario
       let vetorInputado = []
       let inputVetor = p.createInput('')
-      inputVetor.class('p5Input')
+      inputVetor.class('placeTop')
+      inputVetor.attribute('placeholder', 'Valores')
       inputVetor.input(() => {
         let stringArr = inputVetor.value().split(",")
         let numArr = stringArr.map(s => parseInt(s)).filter(Boolean)
@@ -110,7 +111,7 @@ function startTree(){
       }
 
       let updateBtn = p.createButton("Próximo")
-      updateBtn.class("p5Btn")
+      updateBtn.class("placeBot")
 
       window.nextFunc = () => {}
       window.customData = {}
@@ -195,7 +196,7 @@ function startLinkedList() {
       list.setDisplayArrayFromArr(arr)
 
       nextBtn = p.createButton("Executar")
-      nextBtn.class("p5Btn")
+      nextBtn.class("placeBot")
 
       window.nextFunc = () => {}
       window.customData = {}
