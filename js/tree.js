@@ -21,9 +21,10 @@ class Tree {
     }
 
     display(){
-        // this.raiz.display()
-        this.raiz.displayLine()
-        this.raiz.displayNode()
+        //TODO: TERMINAR ISSO AQUI PARA NAO NECESSITAR DE REFERENCIA PARA O PAI NA HORA DO DISPLAY
+        this.raiz.display(null, 1, 1, this.width)
+        // this.raiz.displayLine()
+        // this.raiz.displayNode()
     }
 }
 
@@ -126,5 +127,23 @@ class TreeNode{
             this.esquerda.displayNode()
         if(this.direita != null)
             this.direita.displayNode()
+    }
+
+    //TERMINAR ISSO AQUI
+    display(parentX, level, lrFlag, treeW){
+        let myX
+        if(parentX != null)
+            myX = parentX + (lrFlag * (treeW / this.p5.pow(2, this.level + 1)))
+        else
+            myX = treeW / 2
+        let myY = level * 30 + 10
+        if(parentX != null)
+            this.p5.line(myX, myY, parentX, myY - 30)
+        this.p5.ellipse(myX, myY, 30)
+        if(this.esquerda != null)
+            this.esquerda.display(myX, level + 1, -1, treeW)
+            
+        if(this.direita != null)
+            this.direita.display(myX, level + 1, 1, treeW)
     }
 }
