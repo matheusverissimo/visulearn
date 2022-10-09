@@ -14,7 +14,7 @@ class Tree {
 
     addValue(value){
         if(this.raiz == null){
-            this.raiz = new TreeNode(this.p5, 1, value, null, this)
+            this.raiz = new TreeNode(this.p5, value, null, this)
             this.raiz.tree = this
         }
         else
@@ -23,17 +23,16 @@ class Tree {
     }
 
     display(){
-        this.raiz.display()
-    }
-
-    visit(){
-        this.raiz.visit()
+        // this.raiz.display()
+        this.raiz.displayLine()
+        this.raiz.displayNode()
     }
 }
 
 class TreeNode{
     
-    constructor(p5, lrFlag, value, parent, tree){
+    // construtor padrão para montar a árvore
+    constructor(p5, value, parent, tree){
         this.p5 = p5
         this.valor = value
         this.parent = parent
@@ -67,42 +66,64 @@ class TreeNode{
     addValue(value){
         if(value > this.valor)
             if(this.direita == null)
-                this.direita = new TreeNode(this.p5, 1, value, this, this.tree)
+                this.direita = new TreeNode(this.p5, value, this, this.tree)
             else
                 this.direita.addValue(value)
 
         if(value < this.valor)
             if(this.esquerda == null)
-                this.esquerda = new TreeNode(this.p5, -1, value, this, this.tree)
+                this.esquerda = new TreeNode(this.p5, value, this, this.tree)
             else
                 this.esquerda.addValue(value)
     }
 
-    display(){
+    // display(){
+    //     this.adjustPos()
+    //     if(this.parent != null){
+    //         this.p5.line(this.parent.x, this.parent.y, this.x, this.y)
+    //     }
+    //     this.p5.push()
+    //     if(this.selected){
+    //         this.p5.strokeWeight(2)
+    //         this.p5.stroke(255, 0, 0)
+    //     }
+    //     this.p5.ellipse(this.x, this.y, 30)
+    //     this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
+    //     this.p5.textSize(16)
+    //     this.p5.text(this.valor, this.x, this.y)
+    //     this.p5.pop()
+    //     if(this.esquerda != null)
+    //         this.esquerda.display()
+    //     if(this.direita != null)
+    //         this.direita.display()
+    // }
+
+    displayLine(){
         this.adjustPos()
         if(this.parent != null){
             this.p5.line(this.parent.x, this.parent.y, this.x, this.y)
         }
+        if(this.esquerda != null)
+            this.esquerda.displayLine()
+        if(this.direita != null)
+            this.direita.displayLine()
+    }
+
+    displayNode(){
+        this.adjustPos()
         this.p5.push()
         if(this.selected){
             this.p5.strokeWeight(2)
             this.p5.stroke(255, 0, 0)
         }
-        this.p5.ellipse(this.x, this.y, 20)
+        this.p5.ellipse(this.x, this.y, 30)
         this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
+        this.p5.textSize(16)
         this.p5.text(this.valor, this.x, this.y)
         this.p5.pop()
         if(this.esquerda != null)
-            this.esquerda.display()
+            this.esquerda.displayNode()
         if(this.direita != null)
-            this.direita.display()
-    }
-
-    visit(){
-        if(this.esquerda != null)
-            this.esquerda.visit()
-        console.log(this.valor)
-        if(this.direita != null)
-            this.direita.visit()
+            this.direita.displayNode()
     }
 }

@@ -101,17 +101,19 @@ function startTree(){
   var sketch = function(p){
     
     let tree
+
+    let initArray = [30,10,42,5,7,23,14,9,34,22,28,19,11,48,38,39,44,33]
     
     p.setup = function (){
       p.createCanvas(canvasW, canvasH)
       p.frameRate(1)
       
       tree = new Tree(p, canvasW, canvasH)
-      for(let i = 0; i < 20; i++){
-        tree.addValue(p.floor(p.random(1, 50)))
+      for(let i = 0; i < initArray.length; i++){
+        tree.addValue(initArray[i])
       }
 
-      let updateBtn = p.createButton("Próximo")
+      let updateBtn = p.createButton("Executar")
       updateBtn.class("placeBot")
 
       window.nextFunc = () => {}
@@ -123,9 +125,6 @@ function startTree(){
     }
     
     p.draw = function (){
-
-      
-
       p.background(255)
       tree.display()
     }

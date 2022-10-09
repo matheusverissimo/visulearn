@@ -4,7 +4,7 @@ let dsData = {
         func: startLinkedList,
         pageInfo: {
             title: "Lista Ligada",
-            text: "As listas são estruturas de dados muito utilizadas. Uma lista é, na verdade, um conjunto de estruturas chamadas “nós”. </br> Um nó é uma estrutura que armazena a informação a ser gerenciada por uma lista. Existem dois principais tipos de listas: ligadas e duplamente ligadas.</br> Cada um dos nós de uma lista ligada, além de conhecer o valor que está sendo armazenado em seu interior, também conhece o elemento posterior a ele: por isso ela é chamada de “lista ligada”, pois os nós são amarrados com essa indicação de qual é o próximo nó.",
+            text: "Uma lista é, na verdade, um conjunto de estruturas chamadas “nós”. </br> Um nó é uma estrutura que armazena a informação a ser gerenciada por uma lista. </br> Cada um dos nós de uma lista ligada, além de conhecer o valor que está sendo armazenado em seu interior, também conhece o elemento posterior a ele: por isso ela é chamada de “lista ligada”, pois os nós são amarrados com essa indicação de qual é o próximo nó. </br> Existem dois principais tipos de listas: ligadas e duplamente ligadas.",
             imageSrc: "./images/listaligada.png",
             apiData: [
                 {
@@ -70,10 +70,37 @@ let dsData = {
         }
     },
     arvore: {
-        codeHeader: "(arvore, dados) => {",
+        codeHeader: "(noRaiz, dados) => {",
         func: startTree,
         pageInfo: {
-            title: "Árvores Binárias de Busca"
+            title: "Árvore Binária de Busca",
+            text: "Uma árvore binária de busca é uma estrutura de dados baseada em nós, onde cada nó contém uma chave e duas subárvores à esquerda e a direita. Para todos nós, a chave da subárvore esquerda deve ser menor que a chave desse nó, e a chave da subárvore direita deve ser maior. Todas estas subárvores devem qualificar-se como árvores binárias de busca.",
+            imageSrc: "./images/arvore.png",
+            apiData:[
+                {
+                    name: "Estrutura: No",
+                    content: [
+                        "Representa um nó da árvore.",
+                        "Possui três propriedades acessíveis: ",
+                        "• valor: Contém o valor armazenado pelo nó.",
+                        "• esquerda: Referência para o filho esquerdo desse nó.",
+                        "• direita: Referência para o filho direito desse nó."
+                    ]
+                },
+                {
+                    name: "Parâmetro: noRaiz",
+                    content: [
+                        "Referência para o nó raiz da árvore renderizada."
+                    ]
+                },
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+            ]
+
         }
     }
 }
