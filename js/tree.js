@@ -8,7 +8,6 @@ class Tree {
         this.levels = []
         this.customFunc = null
         this.customData = {
-            currentNode: this.raiz
         }
     }
 
@@ -18,8 +17,7 @@ class Tree {
             this.raiz.tree = this
         }
         else
-            this.raiz.addValue(value)
-        this.customData.currentNode = this.raiz
+            this.raiz.adicionarFilho(value)
     }
 
     display(){
@@ -39,7 +37,7 @@ class TreeNode{
         this.direita = null
         this.esquerda = null
         this.level = parent != null ? parent.level + 1 : 0
-        this.selected = false
+        this.destaque = false
         
         this.tree = tree
         
@@ -51,6 +49,7 @@ class TreeNode{
         }
     }
 
+    // função para determinar x e y de um nó
     adjustPos(){
         let lrFlag 
         if(this.parent == null)
@@ -63,18 +62,18 @@ class TreeNode{
         this.y = this.tree.height / 10 + (this.level * (this.tree.height / 10))
     }
 
-    addValue(value){
+    adicionarFilho(value){
         if(value > this.valor)
             if(this.direita == null)
                 this.direita = new TreeNode(this.p5, value, this, this.tree)
             else
-                this.direita.addValue(value)
+                this.direita.adicionarFilho(value)
 
         if(value < this.valor)
             if(this.esquerda == null)
                 this.esquerda = new TreeNode(this.p5, value, this, this.tree)
             else
-                this.esquerda.addValue(value)
+                this.esquerda.adicionarFilho(value)
     }
 
     // display(){
@@ -112,13 +111,15 @@ class TreeNode{
     displayNode(){
         this.adjustPos()
         this.p5.push()
-        if(this.selected){
+        if(this.destaque){
             this.p5.strokeWeight(2)
-            this.p5.stroke(255, 0, 0)
+            this.p5.stroke(0, 0, 255)
         }
         this.p5.ellipse(this.x, this.y, 30)
         this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
         this.p5.textSize(16)
+        if(this.destaque)
+            this.p5.fill(0, 0, 255)
         this.p5.text(this.valor, this.x, this.y)
         this.p5.pop()
         if(this.esquerda != null)

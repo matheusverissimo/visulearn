@@ -101,7 +101,7 @@ function startTree(){
   var sketch = function(p){
     
     let tree
-
+    // arrau pra inicializar a arvore por default
     let initArray = [30,10,42,5,7,23,14,9,34,22,28,19,11,48,38,39,44,33]
     
     p.setup = function (){
@@ -113,6 +113,7 @@ function startTree(){
         tree.addValue(initArray[i])
       }
 
+      //botao para executar codigo passado pelo usuario
       let updateBtn = p.createButton("Executar")
       updateBtn.class("placeBot")
 
