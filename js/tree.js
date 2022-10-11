@@ -77,49 +77,35 @@ class TreeNode{
                 this.esquerda.adicionarFilho(value)
     }
 
-    getXY(parentX, level, lrFlag, treeW, treeH){
-        return [
-            parentX + (lrFlag * (treeW / this.p5.pow(2, level + 1))),
-            treeH / 10 + (level * (treeH / 10))
-        ]
-    }
-
     display(parentX, level, lrFlag, treeW, treeH){
         this.displayLines(parentX, level, lrFlag, treeW, treeH)
         this.displayNode(parentX, level, lrFlag, treeW, treeH)
     }
 
-    getX(parentX, level, lrFlag, treeW){
-        return parentX + (lrFlag * (treeW / this.p5.pow(2, level + 1)))
-    }
-
-    getY(level, treeH){
-        return treeH / 10 + (level * (treeH / 10))
+    getCoord(parentX, level, lrFlag, treeW, treeH){
+        let myX
+        if(parentX != null)
+            myX = parentX + (lrFlag * (treeW / this.p5.pow(2, level + 1)))
+        else
+            myX = treeW / 2
+        let myY = treeH / 10 + (level * (treeH / 10))
+        return [
+            myX, myY
+        ]
     }
 
     displayLines(parentX, level, lrFlag, treeW, treeH){
-        let myX
-        if(parentX != null)
-            myX = this.getX(parentX, level, lrFlag, treeW, treeH)
-        else
-            myX = treeW / 2
-        let myY = this.getY(level, treeH)
+        let [myX, myY] = this.getCoord(parentX, level, lrFlag, treeW, treeH)
         if(parentX != null)
             this.p5.line(myX, myY, parentX, myY - (treeH / 10))
         if(this.esquerda != null)
             this.esquerda.displayLines(myX, level + 1, -1, treeW, treeH)
-            
         if(this.direita != null)
             this.direita.displayLines(myX, level + 1, 1, treeW, treeH)
     }
 
     displayNode(parentX, level, lrFlag, treeW, treeH){
-        let myX
-        if(parentX != null)
-            myX = this.getX(parentX, level, lrFlag, treeW, treeH)
-        else
-            myX = treeW / 2
-        let myY = this.getY(level, treeH)
+        let [myX, myY] = this.getCoord(parentX, level, lrFlag, treeW, treeH)
         this.p5.push()
         this.p5.ellipse(myX, myY, 30)
         this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
