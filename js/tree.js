@@ -22,7 +22,7 @@ class Tree {
 
     display(){
         //TODO: TERMINAR ISSO AQUI PARA NAO NECESSITAR DE REFERENCIA PARA O PAI NA HORA DO DISPLAY
-        this.raiz.display(null, 1, 1, this.width)
+        this.raiz.display(null, 0, 1, this.width, this.height)
         // this.raiz.displayLine()
         // this.raiz.displayNode()
     }
@@ -77,73 +77,61 @@ class TreeNode{
                 this.esquerda.adicionarFilho(value)
     }
 
-    // display(){
-    //     this.adjustPos()
-    //     if(this.parent != null){
-    //         this.p5.line(this.parent.x, this.parent.y, this.x, this.y)
-    //     }
-    //     this.p5.push()
-    //     if(this.selected){
-    //         this.p5.strokeWeight(2)
-    //         this.p5.stroke(255, 0, 0)
-    //     }
-    //     this.p5.ellipse(this.x, this.y, 30)
-    //     this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
-    //     this.p5.textSize(16)
-    //     this.p5.text(this.valor, this.x, this.y)
-    //     this.p5.pop()
-    //     if(this.esquerda != null)
-    //         this.esquerda.display()
-    //     if(this.direita != null)
-    //         this.direita.display()
-    // }
-
-    displayLine(){
-        this.adjustPos()
-        if(this.parent != null){
-            this.p5.line(this.parent.x, this.parent.y, this.x, this.y)
-        }
-        if(this.esquerda != null)
-            this.esquerda.displayLine()
-        if(this.direita != null)
-            this.direita.displayLine()
+    getXY(parentX, level, lrFlag, treeW, treeH){
+        return [
+            parentX + (lrFlag * (treeW / this.p5.pow(2, level + 1))),
+            treeH / 10 + (level * (treeH / 10))
+        ]
     }
 
-    displayNode(){
-        this.adjustPos()
+    display(parentX, level, lrFlag, treeW, treeH){
+        this.displayLines(parentX, level, lrFlag, treeW, treeH)
+        this.displayNode(parentX, level, lrFlag, treeW, treeH)
+    }
+
+    getX(parentX, level, lrFlag, treeW){
+        return parentX + (lrFlag * (treeW / this.p5.pow(2, level + 1)))
+    }
+
+    getY(level, treeH){
+        return treeH / 10 + (level * (treeH / 10))
+    }
+
+    displayLines(parentX, level, lrFlag, treeW, treeH){
+        let myX
+        if(parentX != null)
+            myX = this.getX(parentX, level, lrFlag, treeW, treeH)
+        else
+            myX = treeW / 2
+        let myY = this.getY(level, treeH)
+        if(parentX != null)
+            this.p5.line(myX, myY, parentX, myY - (treeH / 10))
+        if(this.esquerda != null)
+            this.esquerda.displayLines(myX, level + 1, -1, treeW, treeH)
+            
+        if(this.direita != null)
+            this.direita.displayLines(myX, level + 1, 1, treeW, treeH)
+    }
+
+    displayNode(parentX, level, lrFlag, treeW, treeH){
+        let myX
+        if(parentX != null)
+            myX = this.getX(parentX, level, lrFlag, treeW, treeH)
+        else
+            myX = treeW / 2
+        let myY = this.getY(level, treeH)
         this.p5.push()
-        if(this.destaque){
-            this.p5.strokeWeight(2)
-            this.p5.stroke(0, 0, 255)
-        }
-        this.p5.ellipse(this.x, this.y, 30)
+        this.p5.ellipse(myX, myY, 30)
         this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
         this.p5.textSize(16)
         if(this.destaque)
             this.p5.fill(0, 0, 255)
-        this.p5.text(this.valor, this.x, this.y)
+        this.p5.text(this.valor, myX, myY)
         this.p5.pop()
         if(this.esquerda != null)
-            this.esquerda.displayNode()
-        if(this.direita != null)
-            this.direita.displayNode()
-    }
-
-    //TERMINAR ISSO AQUI
-    display(parentX, level, lrFlag, treeW){
-        let myX
-        if(parentX != null)
-            myX = parentX + (lrFlag * (treeW / this.p5.pow(2, this.level + 1)))
-        else
-            myX = treeW / 2
-        let myY = level * 30 + 10
-        if(parentX != null)
-            this.p5.line(myX, myY, parentX, myY - 30)
-        this.p5.ellipse(myX, myY, 30)
-        if(this.esquerda != null)
-            this.esquerda.display(myX, level + 1, -1, treeW)
+            this.esquerda.displayNode(myX, level + 1, -1, treeW, treeH)
             
         if(this.direita != null)
-            this.direita.display(myX, level + 1, 1, treeW)
+            this.direita.displayNode(myX, level + 1, 1, treeW, treeH)
     }
 }
