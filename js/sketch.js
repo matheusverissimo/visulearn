@@ -36,7 +36,7 @@ function startArray(){
 
       //Para pegar input do usuario
       let vetorInputado = []
-      let inputVetor = p.createInput('')
+      let inputVetor = p.createInput()
       inputVetor.class('placeTop')
       inputVetor.attribute('placeholder', 'Valores')
       inputVetor.input(() => {
@@ -99,14 +99,18 @@ function startBuscaArray(func, data){
 function startTree(){
 
   var sketch = function(p){
+
+    //Define a função para criar novo nó
+    window.No = (valor) => {
+      return new TreeNode(p, valor)
+    }
     
     let tree
-    // arrau pra inicializar a arvore por default
+    // array pra inicializar a arvore por default
     let initArray = [30,10,42,5,7,23,14,9,34,22,28,19,11,48,38,39,44,33]
     
     p.setup = function (){
       p.createCanvas(canvasW, canvasH)
-      p.frameRate(1)
       
       tree = new Tree(p, canvasW, canvasH)
       for(let i = 0; i < initArray.length; i++){
@@ -122,7 +126,10 @@ function startTree(){
 
       updateBtn.mousePressed(() => {
         window.nextFunc(tree.raiz, window.customData)
+        p.redraw()
       })
+
+      p.noLoop()
     }
     
     p.draw = function (){
@@ -204,9 +211,10 @@ function startLinkedList() {
 
       nextBtn.mousePressed(() => {
         window.nextFunc(list, customData)
+        p.redraw()
       })
 
-      p.frameRate(5)
+      p.noLoop()
     }
     
     p.draw = function (){
@@ -215,4 +223,74 @@ function startLinkedList() {
     }
   }
   let myp5 = new p5(sketch) 
+}
+
+function startPilha(){
+  canvasH -= 45
+  var sketch = function(p){
+
+    let pilha
+
+    p.setup = function (){
+      p.createCanvas(canvasW, canvasH)
+      let valor
+      
+      //API Publica da pilha
+      window.adicionar = (valor) => {
+        pilha.adiciona(valor)
+      }
+
+      window.remover = () => pilha.remove()
+
+      // Controles superiores, para remover e adicionar
+
+      // Remove valor
+      let removeValueBtn = p.createButton('Remover')
+      removeValueBtn.class('placeTop')
+      removeValueBtn.mousePressed(() => {
+        pilha.remover()
+        p.redraw()
+      })
+
+      // Valor a ser adicionado via controle
+      let addValueInput = p.createInput()
+      addValueInput.class('placeTop')
+      addValueInput.attribute('placeholder', 'Valor')
+      addValueInput.input(() => {
+        valor = addValueInput.value()
+      })
+
+      // Botao para adicionar valor no input
+      let addValueBtn = p.createButton('Adicionar')
+      addValueBtn.class('placeTop')
+      addValueBtn.mousePressed(() => {
+        pilha.adicionar(valor)
+        p.redraw()
+      })
+
+      // Botão para executar o método do usuário
+      nextBtn = p.createButton("Executar")
+      nextBtn.class("placeBot")
+      
+      window.nextFunc = () => {}
+      window.customData = {}
+      
+      nextBtn.mousePressed(() => {
+        window.nextFunc(pilha, customData)
+        p.redraw()
+      })
+
+      let arr = [1, 2, 3, 4, 5, 6]
+      pilha = new Pilha(p, arr, canvasW, canvasH)
+      
+      p.noLoop()
+    }
+
+    p.draw = function (){
+      p.background(255)
+      pilha.display()
+    }
+  }
+
+  let myp5 = new p5(sketch)
 }

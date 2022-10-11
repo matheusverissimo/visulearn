@@ -275,7 +275,6 @@ button.placeTop, button.placeBot, .customBtn{
 input.placeTop, input.placeBot{
   border: 2px solid #4d1e4d;
   width: 200px;
-  margin-top: 15px;
   height: 26px;
   font-size: 18px;
   text-align: center;

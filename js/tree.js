@@ -35,6 +35,7 @@ class TreeNode{
         this.destaque = false
     }
 
+    //Adiciona filho no Nó
     adicionarFilho(value){
         if(value > this.valor)
             if(this.direita == null)
@@ -49,6 +50,7 @@ class TreeNode{
                 this.esquerda.adicionarFilho(value)
     }
 
+    //primeiro desenha as linhas e depois os circulos
     display(parentX, level, lrFlag, treeW, treeH){
         let tree = {
             w: treeW,
@@ -58,6 +60,7 @@ class TreeNode{
         this.displayNode(parentX, level, lrFlag, tree)
     }
 
+    //retorna o X e o Y pra um nó
     getCoord(parentX, level, lrFlag, tree){
         let myX
         if(parentX != null)

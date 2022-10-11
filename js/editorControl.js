@@ -63,10 +63,24 @@ let dsData = {
         }
     },
     grafo: {
-        codeHeader: "(grafo) => {",
+        codeHeader: "(grafo, dados) => {",
         func: startGraph,
         pageInfo: {
-            title: "Grafos"
+            title: "Grafos",
+            text: "Um grafo consiste de um conjunto finito (e, possivelmente, mutável) de vértices ou nós ou pontos, com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
+            imageSrc: "./images/grafo.png",
+            apiData: [
+                {
+                    name: "Parâmetro: grafo",
+                    content: []
+                },
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+            ]
         }
     },
     arvore: {
@@ -99,6 +113,32 @@ let dsData = {
                         "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
                     ]
                 },
+                {
+                    name: "Função: No(valor)",
+                    content: [
+                        "Cria e retorna um novo nó.",
+                        "Ex.: noRaiz.esquerdo = No(5)"
+                    ]
+                },
+                {
+                    name: "Método: No.adicionaFilho(valor)",
+                    content: [
+                        "Cria um nó com o valor passado por parâmetro e o insere conforme a regra da árvore binária de busca.",
+                        "Ex.: noRaiz.adicionarFilho(5)"
+                    ]
+                },
+            ]
+
+        }
+    },
+    pilha: {
+        codeHeader: "(pilha, dados) => {",
+        func: startPilha,
+        pageInfo: {
+            title: "Pilha",
+            text: "Pilha é um tipo especial de lista linear em que todas as operações de inserção e remoção são realizadas pela mesma extremidade chamada topo.",
+            imageSrc: "./images/arvore.png",
+            apiData:[
             ]
 
         }
