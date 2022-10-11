@@ -50,34 +50,38 @@ class TreeNode{
     }
 
     display(parentX, level, lrFlag, treeW, treeH){
-        this.displayLines(parentX, level, lrFlag, treeW, treeH)
-        this.displayNode(parentX, level, lrFlag, treeW, treeH)
+        let tree = {
+            w: treeW,
+            h: treeH
+        }
+        this.displayLines(parentX, level, lrFlag, tree)
+        this.displayNode(parentX, level, lrFlag, tree)
     }
 
-    getCoord(parentX, level, lrFlag, treeW, treeH){
+    getCoord(parentX, level, lrFlag, tree){
         let myX
         if(parentX != null)
-            myX = parentX + (lrFlag * (treeW / this.p5.pow(2, level + 1)))
+            myX = parentX + (lrFlag * (tree.w / this.p5.pow(2, level + 1)))
         else
-            myX = treeW / 2
-        let myY = treeH / 10 + (level * (treeH / 10))
+            myX = tree.w / 2
+        let myY = tree.h / 10 + (level * (tree.h / 10))
         return [
             myX, myY
         ]
     }
 
-    displayLines(parentX, level, lrFlag, treeW, treeH){
-        let [myX, myY] = this.getCoord(parentX, level, lrFlag, treeW, treeH)
+    displayLines(parentX, level, lrFlag, tree){
+        let [myX, myY] = this.getCoord(parentX, level, lrFlag, tree)
         if(parentX != null)
-            this.p5.line(myX, myY, parentX, myY - (treeH / 10))
+            this.p5.line(myX, myY, parentX, myY - (tree.h / 10))
         if(this.esquerda != null)
-            this.esquerda.displayLines(myX, level + 1, -1, treeW, treeH)
+            this.esquerda.displayLines(myX, level + 1, -1, tree)
         if(this.direita != null)
-            this.direita.displayLines(myX, level + 1, 1, treeW, treeH)
+            this.direita.displayLines(myX, level + 1, 1, tree)
     }
 
-    displayNode(parentX, level, lrFlag, treeW, treeH){
-        let [myX, myY] = this.getCoord(parentX, level, lrFlag, treeW, treeH)
+    displayNode(parentX, level, lrFlag, tree){
+        let [myX, myY] = this.getCoord(parentX, level, lrFlag, tree)
         this.p5.push()
         this.p5.ellipse(myX, myY, 30)
         this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
@@ -87,9 +91,8 @@ class TreeNode{
         this.p5.text(this.valor, myX, myY)
         this.p5.pop()
         if(this.esquerda != null)
-            this.esquerda.displayNode(myX, level + 1, -1, treeW, treeH)
-            
+            this.esquerda.displayNode(myX, level + 1, -1, tree)
         if(this.direita != null)
-            this.direita.displayNode(myX, level + 1, 1, treeW, treeH)
+            this.direita.displayNode(myX, level + 1, 1, tree)
     }
 }
