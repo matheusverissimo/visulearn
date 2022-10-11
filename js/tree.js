@@ -13,7 +13,7 @@ class Tree {
 
     addValue(value){
         if(this.raiz == null){
-            this.raiz = new TreeNode(this.p5, value, null, this)
+            this.raiz = new TreeNode(this.p5, value)
             this.raiz.tree = this
         }
         else
@@ -21,58 +21,30 @@ class Tree {
     }
 
     display(){
-        //TODO: TERMINAR ISSO AQUI PARA NAO NECESSITAR DE REFERENCIA PARA O PAI NA HORA DO DISPLAY
         this.raiz.display(null, 0, 1, this.width, this.height)
-        // this.raiz.displayLine()
-        // this.raiz.displayNode()
     }
 }
 
 class TreeNode{
     
-    // construtor padrão para montar a árvore
-    constructor(p5, value, parent, tree){
+    constructor(p5, value){
         this.p5 = p5
         this.valor = value
-        this.parent = parent
         this.direita = null
         this.esquerda = null
-        this.level = parent != null ? parent.level + 1 : 0
         this.destaque = false
-        
-        this.tree = tree
-        
-        if(this.tree.levels[this.level] != undefined){
-            this.tree.levels[this.level].push(this)
-        }else{
-            this.tree.levels[this.level] = []
-            this.tree.levels[this.level].push(this)
-        }
-    }
-
-    // função para determinar x e y de um nó
-    adjustPos(){
-        let lrFlag 
-        if(this.parent == null)
-            lrFlag = 1
-        else
-            lrFlag = this.parent.esquerda == this ? -1 : 1
-
-        let parentX = this.parent != null ? this.parent.x : 0
-        this.x = parentX + (lrFlag * (this.tree.width / this.p5.pow(2, this.level + 1)))
-        this.y = this.tree.height / 10 + (this.level * (this.tree.height / 10))
     }
 
     adicionarFilho(value){
         if(value > this.valor)
             if(this.direita == null)
-                this.direita = new TreeNode(this.p5, value, this, this.tree)
+                this.direita = new TreeNode(this.p5, value)
             else
                 this.direita.adicionarFilho(value)
 
         if(value < this.valor)
             if(this.esquerda == null)
-                this.esquerda = new TreeNode(this.p5, value, this, this.tree)
+                this.esquerda = new TreeNode(this.p5, value)
             else
                 this.esquerda.adicionarFilho(value)
     }
