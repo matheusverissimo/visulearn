@@ -294,3 +294,73 @@ function startPilha(){
 
   let myp5 = new p5(sketch)
 }
+
+function startFila(){
+  canvasH -= 45
+  var sketch = function(p){
+
+    let fila
+
+    p.setup = function (){
+      p.createCanvas(canvasW, canvasH)
+      let valor
+      
+      //API Publica da pilha
+      window.inserir = (valor) => {
+        fila.inserir(valor)
+      }
+
+      window.remover = () => fila.remover()
+
+      // Controles superiores, para remover e adicionar
+
+      // Remove valor
+      let removeValueBtn = p.createButton('Remover')
+      removeValueBtn.class('placeTop')
+      removeValueBtn.mousePressed(() => {
+        fila.remover()
+        p.redraw()
+      })
+
+      // Valor a ser adicionado via controle
+      let addValueInput = p.createInput()
+      addValueInput.class('placeTop')
+      addValueInput.attribute('placeholder', 'Valor')
+      addValueInput.input(() => {
+        valor = addValueInput.value()
+      })
+
+      // Botao para adicionar valor no input
+      let addValueBtn = p.createButton('Inserir')
+      addValueBtn.class('placeTop')
+      addValueBtn.mousePressed(() => {
+        fila.inserir(valor)
+        p.redraw()
+      })
+
+      // Botão para executar o método do usuário
+      nextBtn = p.createButton("Executar")
+      nextBtn.class("placeBot")
+      
+      window.nextFunc = () => {}
+      window.customData = {}
+      
+      nextBtn.mousePressed(() => {
+        window.nextFunc(customData)
+        p.redraw()
+      })
+
+      let arr = [1, 2, 3, 4, 5, 6]
+      fila = new Fila(p, arr, canvasW, canvasH)
+      
+      p.noLoop()
+    }
+
+    p.draw = function (){
+      p.background(255)
+      fila.display()
+    }
+  }
+
+  let myp5 = new p5(sketch)
+}

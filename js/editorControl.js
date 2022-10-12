@@ -160,6 +160,24 @@ let dsData = {
             ]
 
         }
+    },
+    fila: {
+        codeHeader: "(dados) => {",
+        func: startFila,
+        pageInfo: {
+            title: "Fila",
+            text: "",
+            imageSrc: "./images/fila.png",
+            apiData:[
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+            ]
+
+        }
     }
 }
 
