@@ -132,13 +132,31 @@ let dsData = {
         }
     },
     pilha: {
-        codeHeader: "(pilha, dados) => {",
+        codeHeader: "(dados) => {",
         func: startPilha,
         pageInfo: {
             title: "Pilha",
-            text: "Pilha é um tipo especial de lista linear em que todas as operações de inserção e remoção são realizadas pela mesma extremidade chamada topo.",
-            imageSrc: "./images/arvore.png",
+            text: "Pilha é um tipo especial de lista linear em que todas as operações de inserção e remoção são realizadas pela mesma extremidade chamada topo. </br> Pilhas normalmente são implementadas usando vetores ou listas, acrescidos de seus principais métodos. </br> Alguns exemplos do uso de pilhas são, gerenciamento de memória, parsing de sintaxe e cálculo de expressões matemáticas (usando notação polonesa inversa).",
+            imageSrc: "./images/pilha.png",
             apiData:[
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+                {
+                    name: "Função: inserir(valor)",
+                    content: [
+                        "Insere o valor passado como parâmetro no topo da pilha."
+                    ]
+                },
+                {
+                    name: "Função: remover(valor)",
+                    content: [
+                        "Remove e retorna o valor no topo da pilha."
+                    ]
+                },
             ]
 
         }

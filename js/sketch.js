@@ -236,11 +236,11 @@ function startPilha(){
       let valor
       
       //API Publica da pilha
-      window.adicionar = (valor) => {
-        pilha.adiciona(valor)
+      window.inserir = (valor) => {
+        pilha.inserir(valor)
       }
 
-      window.remover = () => pilha.remove()
+      window.remover = () => pilha.remover()
 
       // Controles superiores, para remover e adicionar
 
@@ -261,10 +261,10 @@ function startPilha(){
       })
 
       // Botao para adicionar valor no input
-      let addValueBtn = p.createButton('Adicionar')
+      let addValueBtn = p.createButton('Inserir')
       addValueBtn.class('placeTop')
       addValueBtn.mousePressed(() => {
-        pilha.adicionar(valor)
+        pilha.inserir(valor)
         p.redraw()
       })
 
@@ -276,7 +276,7 @@ function startPilha(){
       window.customData = {}
       
       nextBtn.mousePressed(() => {
-        window.nextFunc(pilha, customData)
+        window.nextFunc(customData)
         p.redraw()
       })
 
