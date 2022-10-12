@@ -7,11 +7,11 @@ class Fila {
         this.vetor = arr
     }
 
-    inserir(valor){
+    enfileirar(valor){
         this.vetor.push(valor)
     }
 
-    remover(){
+    desenfileirar(){
         return this.vetor.shift()
     }
 
@@ -23,7 +23,8 @@ class Fila {
         this.p5.textSize(20)
 
         for(let i = 0; i < this.vetor.length; i++){
-            let x = i * itemsW + 10
+            // let x = i * itemsW + 10
+            let x = this.w - ((i + 1) * itemsW) + 10
             let y = this.h / 2 - 20
 
             if(i == 0 || i == this.vetor.length - 1){

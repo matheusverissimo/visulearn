@@ -242,7 +242,7 @@ function startPilha(){
 
       window.remover = () => pilha.remover()
 
-      // Controles superiores, para remover e adicionar
+      // Controles superiores, para remover e enfileirar
 
       // Remove valor
       let removeValueBtn = p.createButton('Remover')
@@ -306,19 +306,19 @@ function startFila(){
       let valor
       
       //API Publica da pilha
-      window.inserir = (valor) => {
-        fila.inserir(valor)
+      window.enfileirar = (valor) => {
+        fila.enfileirar(valor)
       }
 
-      window.remover = () => fila.remover()
+      window.desenfileirar = () => fila.desenfileirar()
 
-      // Controles superiores, para remover e adicionar
+      // Controles superiores, para enfileirar e desenfileirar
 
       // Remove valor
-      let removeValueBtn = p.createButton('Remover')
+      let removeValueBtn = p.createButton('Desenfileirar')
       removeValueBtn.class('placeTop')
       removeValueBtn.mousePressed(() => {
-        fila.remover()
+        fila.desenfileirar()
         p.redraw()
       })
 
@@ -331,10 +331,10 @@ function startFila(){
       })
 
       // Botao para adicionar valor no input
-      let addValueBtn = p.createButton('Inserir')
+      let addValueBtn = p.createButton('Enfileirar')
       addValueBtn.class('placeTop')
       addValueBtn.mousePressed(() => {
-        fila.inserir(valor)
+        fila.enfileirar(valor)
         p.redraw()
       })
 
