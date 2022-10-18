@@ -1,7 +1,7 @@
 let dsData = {
     listaLigada: {
         codeHeader: "(lista, dados) => {",
-        func: startLinkedList,
+        func: "startLinkedList",
         pageInfo: {
             title: "Lista Ligada",
             text: "Uma lista é, na verdade, um conjunto de estruturas chamadas “nós”. </br> Um nó é uma estrutura que armazena a informação a ser gerenciada por uma lista. </br> Cada um dos nós de uma lista ligada, além de conhecer o valor que está sendo armazenado em seu interior, também conhece o elemento posterior a ele: por isso ela é chamada de “lista ligada”, pois os nós são amarrados com essa indicação de qual é o próximo nó. </br> Existem dois principais tipos de listas: ligadas e duplamente ligadas.",
@@ -39,7 +39,7 @@ let dsData = {
     },
     vetor: {
         codeHeader: "(vetor, dados) => {",
-        func: startArray,
+        func: "startArray",
         pageInfo: {
             title: "Vetores",
             text: "Um vetor é uma sequência de variáveis de mesmo tipo e referenciadas por um nome único. As principais características de vetores em são:<ul style='padding-left: 1rem'> <li>Os valores são acessíveis individualmente através de índices;</li><li>Os elementos do vetor ocupam posições contíguas de memória;</li><li>Os vetores têm tamanho predefinido e fixo;</li><li>O índice do primeiro elemento é 0 (zero).</li></ul>",
@@ -50,7 +50,7 @@ let dsData = {
                     content: [
                         "Contém o objeto do tipo Array com os valores do vetor a ser manipulado. Como por exemplo: [2,8,5,3,8,1,3,9,7,6].",
                         "O acesso aos elementos se dá na seguinte forma: vetor[0] (Para acessar o primeiro elemento).",
-                        "O valor inicial pode ser alterado ao inserir os valores númericos inteiros separados por vírgula no campo \"Valores\".s"
+                        "O valor inicial pode ser alterado ao inserir os valores númericos inteiros separados por vírgula no campo \"Valores\"."
                     ]
                 },
                 {
@@ -64,7 +64,7 @@ let dsData = {
     },
     grafo: {
         codeHeader: "(grafo, dados) => {",
-        func: startGraph,
+        func: "startGraph",
         pageInfo: {
             title: "Grafos",
             text: "Um grafo consiste de um conjunto finito (e, possivelmente, mutável) de vértices ou nós ou pontos, com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
@@ -85,7 +85,7 @@ let dsData = {
     },
     arvore: {
         codeHeader: "(noRaiz, dados) => {",
-        func: startTree,
+        func: "startTree",
         pageInfo: {
             title: "Árvore Binária de Busca",
             text: "Uma árvore binária de busca é uma estrutura de dados baseada em nós, onde cada nó contém uma chave e duas subárvores à esquerda e a direita. Para todos nós, a chave da subárvore esquerda deve ser menor que a chave desse nó, e a chave da subárvore direita deve ser maior. Todas estas subárvores devem qualificar-se como árvores binárias de busca.",
@@ -133,7 +133,7 @@ let dsData = {
     },
     pilha: {
         codeHeader: "(dados) => {",
-        func: startPilha,
+        func: "startPilha",
         pageInfo: {
             title: "Pilha",
             text: "Pilha é um tipo especial de lista linear em que todas as operações de inserção e remoção são realizadas pela mesma extremidade chamada topo. </br> Pilhas normalmente são implementadas usando vetores ou listas, acrescidos de seus principais métodos. </br> Alguns exemplos do uso de pilhas são, gerenciamento de memória, parsing de sintaxe e cálculo de expressões matemáticas (usando notação polonesa inversa).",
@@ -163,7 +163,7 @@ let dsData = {
     },
     fila: {
         codeHeader: "(dados) => {",
-        func: startFila,
+        func: "startFila",
         pageInfo: {
             title: "Fila",
             text: "Fila é uma estrutura de dados que apresenta o seguinte critério: sempre que houver uma remoção, o elemento removido é o que está na estrutura há mais tempo. (FIFO). </br> Filas podem ser implementadas usando vetores ou listas.",
@@ -204,7 +204,7 @@ function setCodeHeader(ds){
 }
 
 function setSketchFunc(ds){
-    window.customSketch = dsData[ds].func
+    window.customSketch = window[dsData[ds].func]
 }
 
 function removeActiveBotoes(){
