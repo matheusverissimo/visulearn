@@ -16,8 +16,14 @@ class LinkedList {
         let currentNode = this.cabeca
 
         for(let i = 1; i < arr.length; i++){
-            currentNode.addProximo(new Node(arr[i]))
-            currentNode = currentNode.proximo
+            if(!this.doubleLinked){
+                currentNode.addProximo(new Node(arr[i]))
+                currentNode = currentNode.proximo
+            } else {
+                currentNode.addProximo(new DoubleLinkedNode(arr[i]))
+                currentNode.proximo.addAnterior(currentNode)
+                currentNode = currentNode.proximo
+            }
         }
     }
 
@@ -99,6 +105,23 @@ class Node {
         this.proximo = null
     }
 
+    addProximo(node){
+        this.proximo = node
+    }
+}
+
+class DoubleLinkedNode {
+
+    constructor(value){
+        this.valor = value
+        this.anterior = null
+        this.proximo = null
+    }
+
+    addAnterior(node){
+        this.anterior = node
+    }
+    
     addProximo(node){
         this.proximo = node
     }

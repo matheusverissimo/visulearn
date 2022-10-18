@@ -7,7 +7,7 @@ function startArray(){
     p.list = null
 
     p.setup = function() {
-      canvasH -= 45
+      canvasH -= 30
       p.createCanvas(canvasW, canvasH)
       let arr = [3,8,5,3,8,1,3,9,7,6]
       list = new Array_(p, arr, canvasW, canvasH, true)
@@ -188,6 +188,7 @@ function startGraph() {
 }
 
 function startLinkedList() {
+  canvasH -= 5
   var sketch = function(p){
 
     window.No = (val) => new Node(val)
@@ -201,6 +202,45 @@ function startLinkedList() {
       let arr = [2,6,4,7,3,8,1,6,2]
 
       list = new LinkedList(p, canvasW, canvasH, false)
+      list.setDisplayArrayFromArr(arr)
+
+      nextBtn = p.createButton("Executar")
+      nextBtn.class("placeBot")
+
+      window.nextFunc = () => {}
+      window.customData = {}
+
+      nextBtn.mousePressed(() => {
+        window.nextFunc(list, customData)
+        p.redraw()
+      })
+
+      p.noLoop()
+    }
+    
+    p.draw = function (){
+      p.background(255)
+      list.display()
+    }
+  }
+  let myp5 = new p5(sketch) 
+}
+
+function startDoubleLinkedList() {
+  canvasH -= 5
+  var sketch = function(p){
+
+    window.No = (val) => new Node(val)
+  
+    let list
+    let nextBtn
+
+    p.setup = function (){
+      p.createCanvas(canvasW, canvasH)
+
+      let arr = [2,6,4,8,6,2]
+
+      list = new LinkedList(p, canvasW, canvasH, true)
       list.setDisplayArrayFromArr(arr)
 
       nextBtn = p.createButton("Executar")

@@ -10,7 +10,7 @@
 body {
   margin-bottom: 50px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../images/background2.jpg);
+    url(../images/background3.jpg);
 
   background-size: cover;
 }
@@ -136,7 +136,7 @@ textarea:focus {
 }
 
 .card-text {
-  background-color: #585057;
+  background-color: rgb(77, 30, 77);
   text-shadow: 0.1em 0.1em 0.1em #60525a;
   color: white;
   height: 60px;

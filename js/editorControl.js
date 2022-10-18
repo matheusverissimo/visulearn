@@ -37,6 +37,44 @@ let dsData = {
             ]
         }
     },
+    listaDuplamenteLigada: {
+        codeHeader: "(lista, dados) => {",
+        func: "startDoubleLinkedList",
+        pageInfo: {
+            title: "Lista Duplamente Ligada",
+            text: "A lista duplamente ligada, assim como a lista ligada simples, é uma estrutura baseada em nós, com a única diferença que cada nó contém uma referência também para o nó anterior. </br> Para ver mais sobre listas, <a href=\"editor.html?ds=listaLigada\">clique aqui</a>.",
+            imageSrc: "./images/dlista.png",
+            apiData: [
+                {
+                    name: "Estrutura: Lista",
+                    content: [
+                        "Estrutura que representa uma lista ligada.",
+                        "Sua única propriedade acessível é a \"cabeca\", que é uma referência para o primeiro nó."
+                    ]
+                },
+                {
+                    name: "Estrutura: Nó",
+                    content: [
+                        "Estrutura que contém um valor e possui uma referência para o próximo nó.",
+                        "O seu valor está contido na propriedade \"valor\", a referência para o próximo está na propriedade \"proximo\", e a referência para o anterior está na propriedade \"anterior\".",
+                        "Para instânciar um novo nó, basta usar o método No(valor)."
+                    ]
+                },
+                {
+                    name: "Parâmetro: lista",
+                    content: [
+                        "Objeto que referencia a lista renderizada."
+                    ]
+                },
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+            ]
+        }
+    },
     vetor: {
         codeHeader: "(vetor, dados) => {",
         func: "startArray",
