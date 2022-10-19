@@ -25,7 +25,8 @@ let dsData = {
                 {
                     name: "Parâmetro: lista",
                     content: [
-                        "Objeto que referencia a lista renderizada."
+                        "Objeto que referencia a lista renderizada.",
+                        "A lista pode ser alterada através do campo\"Valores\"."
                     ]
                 },
                 {
@@ -63,7 +64,8 @@ let dsData = {
                 {
                     name: "Parâmetro: lista",
                     content: [
-                        "Objeto que referencia a lista renderizada."
+                        "Objeto que referencia a lista renderizada.",
+                        "A lista pode ser alterada através do campo\"Valores\"."
                     ]
                 },
                 {
@@ -105,7 +107,7 @@ let dsData = {
         func: "startGraph",
         pageInfo: {
             title: "Grafos",
-            text: "Um grafo consiste de um conjunto finito (e, possivelmente, mutável) de vértices ou nós ou pontos, com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
+            text: "Um grafo consiste de um conjunto finito de vértices ou nós ou pontos, com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
             imageSrc: "./images/grafo.png",
             apiData: [
                 {

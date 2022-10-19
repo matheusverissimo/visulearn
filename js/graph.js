@@ -5,30 +5,61 @@ class Graph {
         this.width = width
         this.height = height
         this.nodes = []
-        // for(let i = 0; i < numberOfNodes; i++){
-        //     this.addNode(this.p5.ceil(this.p5.random(5, 20)))
-        // }
+        this.minDist = 150
+        this.p5.angleMode(this.p5.DEGREES)
     }
 
-    addNode(value){
-        let x = this.p5.map(this.p5.random(0, this.width), 0, this.width, this.width/4, 3 * this.width/4)
-        let y = this.p5.map(this.p5.random(0, this.height), 0, this.height, 50, this.height - 50)
-        let validPos = true
-
-        for(let j = 0; j < this.nodes.length; j++){
-            let dist = this.p5.dist(x, y, this.nodes[j].x, this.nodes[j].y)
-            if(dist < 100){
+    getPosFromXY(x, y){
+        let angle = 0
+        let offset = this.p5.createVector(-this.minDist, 0)
+        let nextPos
+        while(true){
+            nextPos = this.p5.createVector(x, y).add(offset.rotate(angle))
+            let validPos = true
+            for(let j = 0; j < this.nodes.length; j++){
+                let dist = this.p5.dist(nextPos.x, nextPos.y, this.nodes[j].x, this.nodes[j].y)
+                if(dist < this.minDist){
+                    validPos = false
+                }
+            }
+    
+            if(nextPos.x < 20 || nextPos.x > this.width - 20 || nextPos.y < 20 || nextPos.y > this.height - 20)
                 validPos = false
+            
+            if(validPos)
+                break
+            else {
+                angle += 10
+                if(angle > 360){
+                    nextPos = null
+                    break;
+                }
             }
         }
 
-        if(validPos)
+        return nextPos
+    }
+
+    addNode(value){
+        let pos
+        if(this.nodes.length == 0)
             this.nodes.push(new GraphNode(
-                this.p5.ceil(x), 
-                this.p5.ceil(y),
+                this.p5.ceil(this.width / 2), 
+                this.p5.ceil(this.height/ 2),
                 this.p5.ceil(value)
                 ))
-        else this.addNode(value)
+        else {
+            for(let i = 0; i < this.nodes.length; i++){
+                pos = this.getPosFromXY(this.nodes[i].x, this.nodes[i].y)
+                if(pos != null)
+                    break
+            }
+            this.nodes.push(new GraphNode(
+                this.p5.ceil(pos.x), 
+                this.p5.ceil(pos.y),
+                this.p5.ceil(value)
+                ))
+        }
     }
 
     display(){

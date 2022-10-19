@@ -156,11 +156,7 @@ function startHeap(func, data){
       }
       p.background(255)
       heap.displayAsTree(0, 0, p.windowWidth, p.windowHeight)
-      console.log(heap)
     }
-
-    // p.draw = () => {
-    // }
   }
   let myp5 = new p5(sketch)
 }
@@ -180,15 +176,14 @@ function startGraph() {
         graph.addNode(e)
       graph.connectNodesRandomly()
       graph.display()
-
-      console.log(graph.nodes.map(n => n.connections))
+      p.noLoop()
     }
   }
   let myp5 = new p5(sketch) 
 }
 
 function startLinkedList() {
-  canvasH -= 5
+  canvasH -= 30
   var sketch = function(p){
 
     window.No = (val) => new Node(val)
@@ -215,6 +210,21 @@ function startLinkedList() {
         p.redraw()
       })
 
+      let vetorInputado = []
+      let inputVetor = p.createInput()
+      inputVetor.class('placeTop')
+      inputVetor.attribute('placeholder', 'Valores')
+      inputVetor.input(() => {
+        let stringArr = inputVetor.value().split(",")
+        let numArr = stringArr.map(s => parseInt(s)).filter(Boolean)
+        if(numArr.length > 0)
+          vetorInputado = numArr
+        else 
+          vetorInputado = []
+        list.setDisplayArrayFromArr(vetorInputado)
+        p.redraw()
+      })
+
       p.noLoop()
     }
     
@@ -227,7 +237,7 @@ function startLinkedList() {
 }
 
 function startDoubleLinkedList() {
-  canvasH -= 5
+  canvasH -= 30
   var sketch = function(p){
 
     window.No = (val) => new Node(val)
@@ -251,6 +261,21 @@ function startDoubleLinkedList() {
 
       nextBtn.mousePressed(() => {
         window.nextFunc(list, customData)
+        p.redraw()
+      })
+
+      let vetorInputado = []
+      let inputVetor = p.createInput()
+      inputVetor.class('placeTop')
+      inputVetor.attribute('placeholder', 'Valores')
+      inputVetor.input(() => {
+        let stringArr = inputVetor.value().split(",")
+        let numArr = stringArr.map(s => parseInt(s)).filter(Boolean)
+        if(numArr.length > 0)
+          vetorInputado = numArr
+        else 
+          vetorInputado = []
+        list.setDisplayArrayFromArr(vetorInputado)
         p.redraw()
       })
 

@@ -11,7 +11,7 @@ class LinkedList {
     setDisplayArrayFromArr(arr){
         if(arr.length < 1)
             return
-        this.cabeca = new Node(arr[0])
+        this.cabeca = this.doubleLinked ? new DoubleLinkedNode(arr[0]) : new Node(arr[0])
 
         let currentNode = this.cabeca
 
