@@ -107,7 +107,7 @@ let dsData = {
         func: "startGraph",
         pageInfo: {
             title: "Grafos",
-            text: "Um grafo consiste de um conjunto finito de nós (ou vértices), com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
+            text: "Um grafo consiste de um conjunto finito de nós (ou vértices), com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado. Suas arestas podem ser valoradas ou não. Esse valor pode ser usado para representação de grandezas como peso, comprimento, etc. </br></br> Esse é grafo não-direcionado e de arestas não-valoradas.",
             imageSrc: "./images/grafo.png",
             apiData: [
                 {
@@ -115,20 +115,27 @@ let dsData = {
                     content: [
                         "Representa um nó do grafo. Possui as seguintes propriedades:",
                         "valor: Valor númerico contido no nó",
-                        "vizinhos: Um Vetor contendo os nós vizinhos (conectados).",
+                        "vizinhos: Um vetor contendo os nós vizinhos (conectados).",
                         "visitado: booleano que indica se o nó foi visitado ou não. Destaca a cor do nó no grafo."
                     ]
                 },
                 {
                     name: "Parâmetro: grafo",
                     content: [
-                        "Consiste em um vetor contendo os nó do grafo."
+                        "Consiste em um vetor contendo todos os nó do grafo.",
+                        "Um novo grafo pode ser gerado utilizando o campo \"Nós\", passando os valores dos nós separados por vírgula."
                     ]
                 },
                 {
                     name: "Parâmetro: dados",
                     content: [
                         "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+                {
+                    name: "Função: NovoNo(valor)",
+                    content: [
+                        "Função para adicionar um criar e adicionar no grafo um novo nó com o valor passado por parâmetro."
                     ]
                 },
             ]

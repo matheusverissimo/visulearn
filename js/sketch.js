@@ -177,6 +177,11 @@ function startGraph() {
         graph.addNode(e)
       graph.connectNodesRandomly()
 
+      //Funcao para criar um novo nó e adiciona-lo no grafo
+      window.NovoNo = (valor) => {
+        graph.addNode(valor)
+      }
+
       //Para pegar input do usuario
       let vetorInputado = []
       let inputVetor = p.createInput()
