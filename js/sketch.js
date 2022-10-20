@@ -162,6 +162,7 @@ function startHeap(func, data){
 }
 
 function startGraph() {
+  canvasH -= 35
   var sketch = function(p){
   
     let graph
@@ -169,14 +170,56 @@ function startGraph() {
     p.setup = function (){
       p.createCanvas(canvasW, canvasH)
 
-      let arr = [20,10,13,9,12,3,5]
+      let arr = [20,21,12,9,12,3,5,7]
 
-      graph = new Graph(p, 8, canvasW, canvasH)
+      graph = new Graph(p, canvasW, canvasH)
       for(let e of arr)
         graph.addNode(e)
       graph.connectNodesRandomly()
+
+      //Para pegar input do usuario
+      let vetorInputado = []
+      let inputVetor = p.createInput()
+      inputVetor.class('placeTop')
+      inputVetor.attribute('placeholder', 'Nós')
+      inputVetor.input(() => {
+        let stringArr = inputVetor.value().split(",")
+        let numArr = stringArr.map(s => parseInt(s)).filter(Boolean)
+        if(numArr.length > 0)
+          vetorInputado = numArr
+        else 
+          vetorInputado = []
+        graph.nodes = []
+        for(let e of vetorInputado)
+        graph.addNode(e)
+        graph.display()
+        p.redraw()
+      })
+
+      //Para conectar os nós aleatóriamente
+      let conectarNosBtn =  p.createButton('Conectar nós')
+      conectarNosBtn.class("placeTop")
+      conectarNosBtn.mousePressed(()=> {
+        graph.connectNodesRandomly()
+        p.redraw()
+      })
+
+      //botao para executar codigo passado pelo usuario
+      let updateBtn = p.createButton("Executar")
+      updateBtn.class("placeBot")
+
+      window.nextFunc = () => {}
+      window.customData = {}
+
+      updateBtn.mousePressed(() => {
+        window.nextFunc(graph.nodes, window.customData)
+        p.redraw()
+      })
+    }
+
+    p.draw = function (){
+      p.background(255)
       graph.display()
-      p.noLoop()
     }
   }
   let myp5 = new p5(sketch) 

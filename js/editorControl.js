@@ -8,14 +8,14 @@ let dsData = {
             imageSrc: "./images/listaligada.png",
             apiData: [
                 {
-                    name: "Estrutura: Lista",
+                    name: "Classe: Lista",
                     content: [
                         "Estrutura que representa uma lista ligada.",
                         "Sua única propriedade acessível é a \"cabeca\", que é uma referência para o primeiro nó."
                     ]
                 },
                 {
-                    name: "Estrutura: Nó",
+                    name: "Classe: Nó",
                     content: [
                         "Estrutura que contém um valor e possui uma referência para o próximo nó.",
                         "O seu valor está contido na propriedade \"valor\", e a referência para o próximo está na propriedade \"proximo\"",
@@ -47,14 +47,14 @@ let dsData = {
             imageSrc: "./images/dlista.png",
             apiData: [
                 {
-                    name: "Estrutura: Lista",
+                    name: "Classe: Lista",
                     content: [
                         "Estrutura que representa uma lista ligada.",
                         "Sua única propriedade acessível é a \"cabeca\", que é uma referência para o primeiro nó."
                     ]
                 },
                 {
-                    name: "Estrutura: Nó",
+                    name: "Classe: Nó",
                     content: [
                         "Estrutura que contém um valor e possui uma referência para o próximo nó.",
                         "O seu valor está contido na propriedade \"valor\", a referência para o próximo está na propriedade \"proximo\", e a referência para o anterior está na propriedade \"anterior\".",
@@ -107,12 +107,23 @@ let dsData = {
         func: "startGraph",
         pageInfo: {
             title: "Grafos",
-            text: "Um grafo consiste de um conjunto finito de vértices ou nós ou pontos, com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
+            text: "Um grafo consiste de um conjunto finito de nós (ou vértices), com um conjunto de pares não ordenados destes vértices para um grafo não-direcionado, ou um conjunto de pares ordenados para um grafo direcionado.",
             imageSrc: "./images/grafo.png",
             apiData: [
                 {
+                    name: "Classe: Nó",
+                    content: [
+                        "Representa um nó do grafo. Possui as seguintes propriedades:",
+                        "valor: Valor númerico contido no nó",
+                        "vizinhos: Um Vetor contendo os nós vizinhos (conectados).",
+                        "visitado: booleano que indica se o nó foi visitado ou não. Destaca a cor do nó no grafo."
+                    ]
+                },
+                {
                     name: "Parâmetro: grafo",
-                    content: []
+                    content: [
+                        "Consiste em um vetor contendo os nó do grafo."
+                    ]
                 },
                 {
                     name: "Parâmetro: dados",
@@ -132,7 +143,7 @@ let dsData = {
             imageSrc: "./images/arvore.png",
             apiData:[
                 {
-                    name: "Estrutura: No",
+                    name: "Classe: No",
                     content: [
                         "Representa um nó da árvore.",
                         "Possui três propriedades acessíveis: ",
