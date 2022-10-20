@@ -249,6 +249,36 @@ let dsData = {
             ]
 
         }
+    },
+    tabelaHash: {
+        codeHeader: "(dados) => {",
+        func: "startTabelaHash",
+        pageInfo: {
+            title: "Fila",
+            text: "Fila é uma estrutura de dados que apresenta o seguinte critério: sempre que houver uma remoção, o elemento removido é o que está na estrutura há mais tempo. (FIFO). </br> Filas podem ser implementadas usando vetores ou listas.",
+            imageSrc: "./images/fila.png",
+            apiData:[
+                {
+                    name: "Parâmetro: dados",
+                    content: [
+                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
+                    ]
+                },
+                {
+                    name: "Função: enfileirar(valor)",
+                    content: [
+                        "Adiciona o valor passado como parâmetro no fim da fila."
+                    ]
+                },
+                {
+                    name: "Função: remover(valor)",
+                    content: [
+                        "Remove e retorna o valor no início da fila."
+                    ]
+                },
+            ]
+
+        }
     }
 }
 

@@ -477,3 +477,27 @@ function startFila(){
 
   let myp5 = new p5(sketch)
 }
+
+
+function startTabelaHash(){
+  var sketch = function(p){
+
+    let hash
+
+    p.setup = function (){
+      p.createCanvas(canvasW, canvasH)
+      
+      hash = new HashTable(p, canvasW, canvasH)
+      hash.setTableSize(7)
+
+      p.noLoop()
+    }
+
+    p.draw = function (){
+      p.background(255)
+      hash.display()
+    }
+  }
+
+  let myp5 = new p5(sketch)
+}
