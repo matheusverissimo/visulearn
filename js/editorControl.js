@@ -116,7 +116,8 @@ let dsData = {
                         "Representa um nó do grafo. Possui as seguintes propriedades:",
                         "valor: Valor númerico contido no nó",
                         "vizinhos: Um vetor contendo os nós vizinhos (conectados).",
-                        "visitado: booleano que indica se o nó foi visitado ou não. Destaca a cor do nó no grafo."
+                        "visitado: booleano que indica se o nó foi visitado ou não. Destaca a cor do nó no grafo.",
+                        "Método conectar(No): Conecta os dois nós, tornando-os vizinhos. Ex.: grafo[0].conectar(grafo[1])"
                     ]
                 },
                 {
