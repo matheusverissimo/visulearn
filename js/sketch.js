@@ -480,6 +480,7 @@ function startFila(){
 
 
 function startTabelaHash(){
+  canvasH -= 34
   var sketch = function(p){
 
     let hash
@@ -487,10 +488,21 @@ function startTabelaHash(){
     p.setup = function (){
       p.createCanvas(canvasW, canvasH)
       
+      let tableSize = 7
+
       hash = new HashTable(p, canvasW, canvasH)
-      hash.setTableSize(6)
+      hash.setTableSize(tableSize)
       hash.setHashFunc((v)=>{return v % hash.table.length})
       let valor
+      
+      // Botao para remover valor do input
+      let diminuirTabelaBtn = p.createButton('-')
+      diminuirTabelaBtn.class('placeTop')
+      diminuirTabelaBtn.mousePressed(() => {
+        hash.setTableSize(--tableSize)
+        p.redraw()
+      })
+
       // Botao para remover valor do input
       let removeBtn = p.createButton('Remover')
       removeBtn.class('placeTop')
@@ -512,6 +524,25 @@ function startTabelaHash(){
       addValueBtn.class('placeTop')
       addValueBtn.mousePressed(() => {
         hash.inserir(valor)
+        p.redraw()
+      })
+
+      // Botao para remover valor do input
+      let aumentarTabelaBtn = p.createButton('+')
+      aumentarTabelaBtn.class('placeTop')
+      aumentarTabelaBtn.mousePressed(() => {
+        hash.setTableSize(++tableSize)
+        p.redraw()
+      })
+
+      //botao para executar codigo passado pelo usuario
+      let updateBtn = p.createButton("Definir Função Hash")
+      updateBtn.class("placeBot")
+
+      window.nextFunc = () => {}
+
+      updateBtn.mousePressed(() => {
+        hash.setHashFunc(window.nextFunc)
         p.redraw()
       })
 

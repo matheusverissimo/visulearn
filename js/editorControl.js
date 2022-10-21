@@ -251,31 +251,13 @@ let dsData = {
         }
     },
     tabelaHash: {
-        codeHeader: "(dados) => {",
+        codeHeader: "(valor) => {",
         func: "startTabelaHash",
         pageInfo: {
             title: "Tabela de Dispersão (Tabela Hash)",
-            text: "Uma tabela de dispersão (ou tabela hash), é uma estrutura de dados que funciona como um vetor de registros, onde cada registro possui um campo especial chamado de <strong>chave</strong>. </br> As chaves são convertidas em um indíce desse vetor, que será mapeado para identificar o local onde aquela chave será inserida. </br> Esse mapeamento de uma chave para um índice é conhecido como <strong>função de espalhamento</strong>.",
-            imageSrc: "./images/fila.png",
+            text: "Uma tabela de dispersão (ou tabela hash), é uma estrutura de dados que funciona como um vetor de registros, onde cada registro possui um campo especial chamado de <strong>chave</strong>. </br> As chaves são convertidas em um indíce desse vetor, que será mapeado para identificar o local onde aquela chave será inserida. </br> Esse mapeamento de uma chave para um índice é conhecido como <strong>função de espalhamento</strong>. </br> As tabelas hash podem também armazenar listas ou vetores dentro de cada um dos índices, assim, suportando <strong>colisões de chaves</strong>.",
+            imageSrc: "./images/hashtable.png",
             apiData:[
-                {
-                    name: "Parâmetro: dados",
-                    content: [
-                        "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
-                    ]
-                },
-                {
-                    name: "Função: enfileirar(valor)",
-                    content: [
-                        "Adiciona o valor passado como parâmetro no fim da fila."
-                    ]
-                },
-                {
-                    name: "Função: remover(valor)",
-                    content: [
-                        "Remove e retorna o valor no início da fila."
-                    ]
-                },
             ]
 
         }
