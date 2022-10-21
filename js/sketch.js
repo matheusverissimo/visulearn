@@ -489,6 +489,15 @@ function startTabelaHash(){
       
       hash = new HashTable(p, canvasW, canvasH)
       hash.setTableSize(7)
+      hash.setHashFunc((v)=>{
+        return v % 7
+      })
+      hash.inserir(3)
+      hash.inserir(10)
+      hash.inserir(20)
+      hash.inserir(22)
+      hash.inserir(2)
+      hash.inserir(9)
 
       p.noLoop()
     }
