@@ -488,16 +488,32 @@ function startTabelaHash(){
       p.createCanvas(canvasW, canvasH)
       
       hash = new HashTable(p, canvasW, canvasH)
-      hash.setTableSize(7)
-      hash.setHashFunc((v)=>{
-        return v % 7
+      hash.setTableSize(6)
+      hash.setHashFunc((v)=>{return v % hash.table.length})
+      let valor
+      // Botao para remover valor do input
+      let removeBtn = p.createButton('Remover')
+      removeBtn.class('placeTop')
+      removeBtn.mousePressed(() => {
+        hash.remover(valor)
+        p.redraw()
       })
-      hash.inserir(3)
-      hash.inserir(10)
-      hash.inserir(20)
-      hash.inserir(22)
-      hash.inserir(2)
-      hash.inserir(9)
+
+      // Valor a ser inserido ou removido via controle
+      let inserirInput = p.createInput()
+      inserirInput.class('placeTop')
+      inserirInput.attribute('placeholder', 'Valor a inserir')
+      inserirInput.input(() => {
+        valor = inserirInput.value()
+      })
+
+      // Botao para inserir valor do input
+      let addValueBtn = p.createButton('Inserir')
+      addValueBtn.class('placeTop')
+      addValueBtn.mousePressed(() => {
+        hash.inserir(valor)
+        p.redraw()
+      })
 
       p.noLoop()
     }

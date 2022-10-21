@@ -254,8 +254,8 @@ let dsData = {
         codeHeader: "(dados) => {",
         func: "startTabelaHash",
         pageInfo: {
-            title: "Fila",
-            text: "Fila é uma estrutura de dados que apresenta o seguinte critério: sempre que houver uma remoção, o elemento removido é o que está na estrutura há mais tempo. (FIFO). </br> Filas podem ser implementadas usando vetores ou listas.",
+            title: "Tabela de Dispersão (Tabela Hash)",
+            text: "Uma tabela de dispersão (ou tabela hash), é uma estrutura de dados que funciona como um vetor de registros, onde cada registro possui um campo especial chamado de <strong>chave</strong>. </br> As chaves são convertidas em um indíce desse vetor, que será mapeado para identificar o local onde aquela chave será inserida. </br> Esse mapeamento de uma chave para um índice é conhecido como <strong>função de espalhamento</strong>.",
             imageSrc: "./images/fila.png",
             apiData:[
                 {
