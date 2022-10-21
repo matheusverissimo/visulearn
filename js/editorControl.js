@@ -251,13 +251,44 @@ let dsData = {
         }
     },
     tabelaHash: {
-        codeHeader: "(valor) => {",
+        codeHeader: "(chave) => {",
         func: "startTabelaHash",
         pageInfo: {
             title: "Tabela de Dispersão (Tabela Hash)",
             text: "Uma tabela de dispersão (ou tabela hash), é uma estrutura de dados que funciona como um vetor de registros, onde cada registro possui um campo especial chamado de <strong>chave</strong>. </br> As chaves são convertidas em um indíce desse vetor, que será mapeado para identificar o local onde aquela chave será inserida. </br> Esse mapeamento de uma chave para um índice é conhecido como <strong>função de espalhamento</strong>. </br> As tabelas hash podem também armazenar listas ou vetores dentro de cada um dos índices, assim, suportando <strong>colisões de chaves</strong>.",
             imageSrc: "./images/hashtable.png",
             apiData:[
+                {
+                    name: "Tabela Hash",
+                    content: [
+                        "Por padrão, a tabela usa a seguinte função de dispersão:",
+                        "h(k) = k mod s",
+                        "Onde h = índice da tabela hash, k = chave e s = tamanho da tabela.",
+                        "Vale dizer que com essa função hash só serão inseridos valores numéricos inteiros, porém, você pode escrever sua própria função hash."
+                    ]
+                },
+                {
+                    name: "Controles: - e +",
+                    content: [
+                        "Esses controles ajustarão o tamanho da tabela."
+                    ]
+                },
+                {
+                    name: "Controles: Inserir e Remover",
+                    content: [
+                        "Use-os para inserir ou remover os valores dentro da caixa de texto acima da tabela.",
+                        "Considerando que essa tabela possui encadeamento, você poderá inserir e remover elementos das listas para onde apontam as posições disponíveis na tabela."
+                    ]
+                },
+                {
+                    name: "Controle: Definir Função Hash",
+                    content: [
+                        "Para que você possa definir sua própria função de dispersão, codifique-a na caixa de texto da esquerda, conclua e em seguida clique no botão \"Definir função hash\".",
+                        "A função codificada deverá obrigatóriamente retornar um valor inteiro que corresponderá ao hash, ou seja, deverá ser um índice contido na tabela.",
+                        "Ex.: return valor % 2 == 0 ? 0 : 1",
+                        "Essa função colocará os números pares no hash 0 e os ímpares no 1."
+                    ]
+                }
             ]
 
         }
