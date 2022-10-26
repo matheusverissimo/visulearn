@@ -5,11 +5,13 @@ class HashTable {
         this.w = w
         this.h = h
         this.hashfunc = null
+        this.customData = {}
         this.table = []
     }
 
-    setHashFunc(func){
+    setHashFunc(func, customData){
         this.hashfunc = func
+        this.customData = customData
     }
 
     setTableSize(tamanho){
@@ -19,12 +21,12 @@ class HashTable {
     }
 
     inserir(valor){
-        let i = this.hashfunc(valor)
+        let i = this.hashfunc(valor, this.customData)
         this.table[i].push(valor)
     }
 
     remover(valor){
-        let i = this.hashfunc(valor)
+        let i = this.hashfunc(valor, this.customData)
         let j = this.table[i].indexOf(valor)
         if(j > -1)
             this.table[i].splice(j, 1)

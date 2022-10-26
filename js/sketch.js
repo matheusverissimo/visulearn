@@ -540,9 +540,10 @@ function startTabelaHash(){
       updateBtn.class("placeBot")
 
       window.nextFunc = () => {}
+      window.customData = () => {}
 
       updateBtn.mousePressed(() => {
-        hash.setHashFunc(window.nextFunc)
+        hash.setHashFunc(window.nextFunc, window.customData)
         p.redraw()
       })
 

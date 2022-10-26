@@ -251,7 +251,7 @@ let dsData = {
         }
     },
     tabelaHash: {
-        codeHeader: "(chave) => {",
+        codeHeader: "(chave, dados) => {",
         func: "startTabelaHash",
         pageInfo: {
             title: "Tabela de Dispersão (Tabela Hash)",
