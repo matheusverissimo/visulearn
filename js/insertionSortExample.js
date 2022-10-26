@@ -1,31 +1,31 @@
-(arr, data) => {
-    data.selectedItemsIndex = []
-    if(data.i >= arr.length){
-      data.complete = true
+(vetor, dados) => {
+    dados.selectedItemsIndex = []
+    if(dados.i >= vetor.length){
+      dados.complete = true
       return
     }
 
-    if (!data.midsorting) {
-      data.j = data.i;
+    if (!dados.midsorting) {
+      dados.j = dados.i;
     }
 
-    if (data.j > 0 && arr[data.j] < arr[data.j-1]) {
-      data.selectedItemsIndex.push(data.j, data.j - 1)
-      data.numberOfComparisons++
-      data.midsorting = true;
+    if (dados.j > 0 && vetor[dados.j] < vetor[dados.j-1]) {
+      dados.selectedItemsIndex.push(dados.j, dados.j - 1)
+      dados.numberOfComparisons++
+      dados.midsorting = true;
 
-      var temp = arr[data.j-1];
-      arr[data.j-1] = arr[data.j];
-      arr[data.j] = temp;
+      var temp = vetor[dados.j-1];
+      vetor[dados.j-1] = vetor[dados.j];
+      vetor[dados.j] = temp;
       
-      data.j--;
+      dados.j--;
     } else {
-      data.midsorting = false;
+      dados.midsorting = false;
     }
 
-    if (!data.midsorting) {
-      data.i++;
+    if (!dados.midsorting) {
+      dados.i++;
     }
 }
 
-let data = {i: 1, j: 1, midsorting: false}
+let dados = {i: 1, j: 1, midsorting: false}

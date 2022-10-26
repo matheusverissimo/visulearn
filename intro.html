@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>VisuLearn</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/main.js" defer></script>
+    <style>
+      a:hover{
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="flex header space-between">
+        <h1 class="header-logo">VisuLearn</h1>
+        <div>
+          <a class="links" href="index.html">
+            <button class="header-button">Início</button>
+          </a>
+          <a class="links" href="menu.html">
+            <button class="header-button">Menu</button>
+          </a>
+        </div>
+      </div>
+
+      <div style="font-size: 16px;" class="container bg-light rounded d-flex flex-column px-5 mb-5">
+        <h1 style="color: black; font-size: 36px" class="font-weight-bold my-3">
+            O que é a <span style="color: purple">VisuLearn</span>?
+        </h1>
+        <div class="row">
+            <span class="text-justify text-indent">
+                A VisuLearn é uma ferramenta de visualização de algoritmos e estruturas de dados, que tem como objetivo dar suporte no aprendizado desses tópicos de forma interativa, facilitando a assimilação de conceitos fundamentalmente abstratos através de recursos visuais.
+            </span>
+        </div>
+        <h1 style="color: black; font-size: 24px" class="font-weight-bold my-3">
+            Como funciona?
+        </h1>
+        <div class="row">
+            <span class="text-justify text-indent">
+                Tudo começa no <a class="font-weight-bold" style="color: purple" href="menu.html">menu</a> onde usuário pode selecionar uma estrutura de dados do catálogo. 
+                A partir disso, ele será redirecionado para a principal página da VisuLearn, a qual se divide da seguinte forma: 
+            </span>
+        </div>
+        <div class="row mt-3 align-items-center">
+            <div class="col-5">
+                <div class="d-flex flex-column align-items-center">
+                    <h3 style="color: purple">1. Guia</h3>
+                    <span class="text-justify text-indent">
+                        Essa seção contém uma breve descrição da estrutura de dados, explicando resumidamente seu funcionamento e
+                        sua aplicabilidade.
+                        <p>
+                            Em adicional, nela estão descritos os controles para interagir com a estrutura de dados
+                            que será renderizada. Além disso, ela contém as definições da interface Javascript (métodos e propriedades dos objetos), usada para interagir com os objetos
+                            através de codificação.
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-7 justify-content">
+                <figure class="d-flex flex-column">
+                    <img src="./images/print1.JPG" alt="Print screen do guia da estrutura de dados.">
+                </figure>
+            </div>
+        </div>
+        <div class="row mt-3 align-items-center">
+            <div class="col-5 justify-content">
+                <figure class="d-flex flex-column">
+                    <img src="./images/print2.JPG" alt="Print screen do guia da estrutura de dados.">
+                </figure>
+            </div>
+            <div class="col-7">
+                <div class="d-flex flex-column align-items-center">
+                    <h3 style="color: purple">2. Editor Javascript</h3>
+                    <span class="text-justify text-indent">
+                        <p>
+                            Esse componente contém dois editores de código Javascript. Nele o usuário poderá definir seu próprio código para 
+                            controlar a estrutura de dados da forma que quiser!
+                        </p>
+                        <p>
+                            O primeiro deles é usado para definir um objeto Javascript com as propriedades e valores que o usuário quiser, esse objeto estará
+                            acessível na função codificada a seguir. Os valores das propriedades poderão ser atualizados entre execuções da função,
+                            ou seja, pode ser utilizado para contadores e etc.
+                        </p>
+                        <p>
+                            No segundo editor o usuário poderá codificar uma função Javascript que será executada sob-demanda. Essa função receberá como
+                            parâmetros dois objetos, o primeiro deles sempre representando a estrutura de dados sendo renderizada (é interagindo com esse 
+                            objeto que você poderá alterar a estrutura de dados da forma que desejar) e o segundo é o objeto definido no editor anterior.
+                            Após a codificação, basta clicar no botão "Concluir", para que seu código seja computado e se torne passível de execução.
+                        </p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 align-items-center">
+            <div class="col-7">
+                <div class="d-flex flex-column align-items-center">
+                    <h3 style="color: purple">3. Canvas</h3>
+                    <span class="text-justify text-indent">
+                        <p>
+                            Aqui serão renderizadas as estruturas de dados e os controles pré-definidos para cada uma delas, como <i>inputs</i>
+                            de entrada de valores e botões para diferentes ações.
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <div class="col-5 justify-content">
+                <figure class="d-flex flex-column">
+                    <img src="./images/print3.JPG" alt="Print screen do guia da estrutura de dados.">
+                </figure>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

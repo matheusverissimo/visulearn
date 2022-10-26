@@ -8,7 +8,7 @@
 }
 
 body {
-  margin-bottom: 50px;
+  height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(../images/background3.jpg);
 
@@ -20,7 +20,7 @@ h1 {
   margin: 2rem 0;
   font-size: 24px;
   color: white;
-  text-shadow: 0.1em 0.1em 0.1em #2b2726;
+  /* text-shadow: 0.1em 0.1em 0.1em #2b2726; */
 }
 
 h2 {
@@ -284,4 +284,8 @@ input.placeTop, input.placeBot{
 .list-group-item.active{
   background-color: #4d1e4d !important;
   border-color: #4d1e4d !important;
+}
+
+.text-indent{
+  text-indent: 40px;
 }
