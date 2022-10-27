@@ -8,6 +8,37 @@ class LinkedList {
         this.cabeca = null
     }
 
+    remover(valor){
+        let currentNode = this.cabeca
+        let previousNode = null
+        while(true){
+            if(currentNode.valor == valor){
+                if(previousNode != null)
+                    previousNode.proximo = currentNode.proximo ?? null
+                if(this.doubleLinked)
+                    if(currentNode.proximo != null)
+                        currentNode.anterior = previousNode
+                if(currentNode == this.cabeca){
+                    this.cabeca = currentNode.proximo
+                }
+                break;
+            } else {
+                previousNode = currentNode
+                currentNode = currentNode.proximo
+            }
+        }
+    }
+
+    inserirNaCauda(valor){
+        let novoNo = this.doubleLinked ? new DoubleLinkedNode(valor) : new Node(valor)
+        let currentNode = this.cabeca
+        while(currentNode.proximo != null)
+            currentNode = currentNode.proximo
+        currentNode.addProximo(novoNo)
+        if(this.doubleLinked)
+            novoNo.addAnterior(currentNode)
+    }
+
     setDisplayArrayFromArr(arr){
         if(arr.length < 1)
             return

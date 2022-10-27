@@ -21,7 +21,7 @@ function startArray(){
       
       //Para controlar se o update é automatico baseado no framerate
       window.autoUpdate = false
-      let autoUpdateBtnc =  p.createButton('Atualizar automaticamente')
+      let autoUpdateBtnc =  p.createButton('Executar automaticamente')
       autoUpdateBtnc.class("placeBot")
       autoUpdateBtnc.mousePressed(()=> {
         window.autoUpdate = !window.autoUpdate
@@ -231,7 +231,7 @@ function startGraph() {
 }
 
 function startLinkedList() {
-  canvasH -= 30
+  canvasH -= 35
   var sketch = function(p){
 
     window.No = (val) => new Node(val)
@@ -243,9 +243,32 @@ function startLinkedList() {
       p.createCanvas(canvasW, canvasH)
 
       let arr = [2,6,4,7,3,8,1,6,2]
+      let valor
 
       list = new LinkedList(p, canvasW, canvasH, false)
       list.setDisplayArrayFromArr(arr)
+
+      let inserirBtn = p.createButton('Inserir')
+      inserirBtn.class('placeTop')
+      inserirBtn.mousePressed(() => {
+        list.inserirNaCauda(valor)
+        p.redraw()
+      })
+
+      // Valor a ser inserido ou removido via controle
+      let valInput = p.createInput()
+      valInput.class('placeTop')
+      valInput.attribute('placeholder', 'Valor')
+      valInput.input(() => {
+        valor = valInput.value()
+      })
+
+      let removerBtn = p.createButton('Remover')
+      removerBtn.class('placeTop')
+      removerBtn.mousePressed(() => {
+        list.remover(valor)
+        p.redraw()
+      })
 
       nextBtn = p.createButton("Executar")
       nextBtn.class("placeBot")
@@ -260,7 +283,7 @@ function startLinkedList() {
 
       let vetorInputado = []
       let inputVetor = p.createInput()
-      inputVetor.class('placeTop')
+      inputVetor.class('placeBot')
       inputVetor.attribute('placeholder', 'Valores')
       inputVetor.input(() => {
         let stringArr = inputVetor.value().split(",")
@@ -285,7 +308,7 @@ function startLinkedList() {
 }
 
 function startDoubleLinkedList() {
-  canvasH -= 30
+  canvasH -= 35
   var sketch = function(p){
 
     window.No = (val) => new Node(val)
@@ -297,9 +320,32 @@ function startDoubleLinkedList() {
       p.createCanvas(canvasW, canvasH)
 
       let arr = [2,6,4,8,6,2]
+      let val
 
       list = new LinkedList(p, canvasW, canvasH, true)
       list.setDisplayArrayFromArr(arr)
+
+      let inserirBtn = p.createButton('Inserir')
+      inserirBtn.class('placeTop')
+      inserirBtn.mousePressed(() => {
+        list.inserirNaCauda(valor)
+        p.redraw()
+      })
+
+      // Valor a ser inserido ou removido via controle
+      let valInput = p.createInput()
+      valInput.class('placeTop')
+      valInput.attribute('placeholder', 'Valor')
+      valInput.input(() => {
+        valor = valInput.value()
+      })
+
+      let removerBtn = p.createButton('Remover')
+      removerBtn.class('placeTop')
+      removerBtn.mousePressed(() => {
+        list.remover(valor)
+        p.redraw()
+      })
 
       nextBtn = p.createButton("Executar")
       nextBtn.class("placeBot")
@@ -314,7 +360,7 @@ function startDoubleLinkedList() {
 
       let vetorInputado = []
       let inputVetor = p.createInput()
-      inputVetor.class('placeTop')
+      inputVetor.class('placeBot')
       inputVetor.attribute('placeholder', 'Valores')
       inputVetor.input(() => {
         let stringArr = inputVetor.value().split(",")
