@@ -3,14 +3,14 @@ let dsData = {
         codeHeader: "(lista, dados) => {",
         func: "startLinkedList",
         pageInfo: {
-            title: "Lista Ligada",
-            text: "Uma lista é, na verdade, um conjunto de estruturas chamadas “nós”. </br> Um nó é uma estrutura que armazena a informação a ser gerenciada por uma lista. </br> Cada um dos nós de uma lista ligada, além de conhecer o valor que está sendo armazenado em seu interior, também conhece o elemento posterior a ele: por isso ela é chamada de “lista ligada”, pois os nós são amarrados com essa indicação de qual é o próximo nó. </br> Existem dois principais tipos de listas: ligadas e duplamente ligadas.",
+            title: "Lista Encadeada",
+            text: "Uma lista é, na verdade, um conjunto de estruturas chamadas “nós”. </br> Um nó é uma estrutura que armazena a informação a ser gerenciada por uma lista. </br> Cada um dos nós de uma lista ligada, além de conhecer o valor que está sendo armazenado em seu interior, também conhece o elemento posterior a ele: por isso ela é chamada de “lista encadeada, pois os nós são amarrados com essa indicação de qual é o próximo nó. </br> Existem dois principais tipos de listas: encadeadas simples e duplamente encadeadas.",
             imageSrc: "./images/listaligada.png",
             apiData: [
                 {
                     name: "Classe: Lista",
                     content: [
-                        "Estrutura que representa uma lista ligada.",
+                        "Estrutura que representa uma lista encadeada.",
                         "Sua única propriedade acessível é a \"cabeca\", que é uma referência para o primeiro nó."
                     ]
                 },
@@ -42,14 +42,14 @@ let dsData = {
         codeHeader: "(lista, dados) => {",
         func: "startDoubleLinkedList",
         pageInfo: {
-            title: "Lista Duplamente Ligada",
-            text: "A lista duplamente ligada, assim como a lista ligada simples, é uma estrutura baseada em nós, com a única diferença que cada nó contém uma referência também para o nó anterior. </br> Para ver mais sobre listas, <a href=\"editor.html?ds=listaLigada\">clique aqui</a>.",
+            title: "Lista Duplamente Encadeada",
+            text: "A lista duplamente encadeada, assim como a lista encadeada simples, é uma estrutura baseada em nós, com a única diferença que cada nó contém uma referência também para o nó anterior. </br> Para ver mais sobre listas, <a href=\"editor.html?ds=listaLigada\">clique aqui</a>.",
             imageSrc: "./images/dlista.png",
             apiData: [
                 {
                     name: "Classe: Lista",
                     content: [
-                        "Estrutura que representa uma lista ligada.",
+                        "Estrutura que representa uma lista encadeada.",
                         "Sua única propriedade acessível é a \"cabeca\", que é uma referência para o primeiro nó."
                     ]
                 },
