@@ -4,42 +4,47 @@ let canvasH = canvasContainer.offsetHeight - 45
 
 function startArray(){
   var sketch = function(p){
-    p.list = null
-
+    let array
     p.setup = function() {
       canvasH -= 35
       p.createCanvas(canvasW, canvasH)
       let arr = [3,8,5,3,8,1,3,9,7,6]
-      list = new Array_(p, arr, canvasW, canvasH, true)
+      array = new Array_(p, arr, canvasW, canvasH, true)
 
       // Para setar funcao custom
       window.nextFunc = () => {}
       window.customData = {}
-      window.setUpdateCustomFunc = false
-      window.customFuncWasSet = false
-      list.setCustomUpdateFunc(window.nextFunc, window.customData)
       
-      //Para controlar se o update é automatico baseado no framerate
-      window.autoUpdate = false
       let autoUpdateBtnc =  p.createButton('Executar automaticamente')
       autoUpdateBtnc.class("placeBot")
       autoUpdateBtnc.mousePressed(()=> {
-        window.autoUpdate = !window.autoUpdate
+        if(p.isLooping()){
+          p.noLoop()
+          console.log("a")
+          autoUpdateBtnc.html('Executar automaticamente')
+        }
+        else{
+          p.loop()
+          console.log("b")
+          autoUpdateBtnc.html('Parar execução')
+        }
       })
 
       //Para chamar manualmente o update
       let controlledUpdateBtn = p.createButton('Executar')
       controlledUpdateBtn.class("placeBot")
       controlledUpdateBtn.mousePressed(() => {
-        list.nextStep()
+        window.nextFunc(array.array, window.customData)
+        array.updateListItems()
+        p.redraw()
       })
 
       //Para ordenar automaticamente
       let unsortBtn = p.createButton('Desordenar')
       unsortBtn.class('placeTop')
       unsortBtn.mousePressed(() => {
-        list.shuffle()
-        list.redraw()
+        array.shuffle()
+        p.redraw()
       })
 
       //Para pegar input do usuario
@@ -54,58 +59,28 @@ function startArray(){
           vetorInputado = numArr
         else 
           vetorInputado = []
-        list = new Array_(p, vetorInputado, canvasW, canvasH, true)
-        list.setCustomUpdateFunc(window.nextFunc, window.customData)
+        array = new Array_(p, vetorInputado, canvasW, canvasH, true)
       })
 
       //Para ordenar automaticamente
       let sortBtn = p.createButton('Ordenar')
       sortBtn.class('placeTop')
       sortBtn.mousePressed(() => {
-        list.sort()
-        list.redraw()
+        array.sort()
+        p.redraw()
       })
 
-      p.frameRate(2)
+      p.frameRate(3)
+      p.noLoop()
     }
     
     p.draw = function() {
-      //Para setar funcao custom
-      if(window.setUpdateCustomFunc){
-        list.setCustomUpdateFunc(window.nextFunc, window.customData)
-        window.setUpdateCustomFunc = false
-        window.customFuncWasSet = true
+      p.background(255)
+      if(p.isLooping()){
+        window.nextFunc(array.array, window.customData)
+        array.updateListItems()
       }
-      p.background(255)
-      list.display()
-      if(window.autoUpdate && window.customFuncWasSet)
-        list.nextStep()
-    }
-  }
-
-  let myp5 = new p5(sketch)
-}
-
-function startBuscaArray(func, data){
-  var sketch = function(p){
-    p.list = null
-
-    p.setup = function() {
-      p.createCanvas(p.windowWidth, p.windowHeight)
-      let arr = []
-      for(let i = 0; i < 15; i++)
-        arr.push(p.ceil(p.random(0,50)))
-      arr.push(15)
-      list = new Array_(p, arr, p.windowWidth, p.windowHeight)
-      list.setCustomUpdateFunc(func, data)
-      p.frameRate(3)
-    }
-
-    p.draw = function() {
-      p.background(255)
-      list.display()
-      if(!list.isComplete())
-        list.nextStep()
+      array.display()
     }
   }
 

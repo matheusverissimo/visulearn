@@ -1,26 +1,17 @@
-(arr, data) => {
-    data.selectedItemsIndex = []
-    if(data.i < arr.length){
-      if(data.j < arr.length - data.i - 1){
-          data.selectedItemsIndex.push(data.j, data.j + 1)
-          if(data.comparing) {
-              data.comparing = false
-              return
+(vetor, dados) => {
+    if(dados.i < vetor.length){
+      if(dados.j < vetor.length - dados.i - 1){
+          if(vetor[dados.j] > vetor[dados.j + 1]){
+              let tmp = vetor[dados.j]
+              vetor[dados.j] = vetor[dados.j + 1]
+              vetor[dados.j + 1] = tmp
           }
-          data.numberOfComparisons++
-          if(arr[data.j] > arr[data.j + 1]){
-              let tmp = arr[data.j]
-              arr[data.j] = arr[data.j + 1]
-              arr[data.j + 1] = tmp
-          }
-          data.j++
-          data.comparing = true
+          dados.j++
       } else {
-          data.j = 0
-          data.i++
+          dados.j = 0
+          dados.i++
       }
     }
-    else data.complete = true
 }
 
 let data = {
