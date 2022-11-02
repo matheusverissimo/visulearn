@@ -23,6 +23,11 @@ class Tree {
     display(){
         this.raiz.display(null, 0, 1, this.width, this.height)
     }
+
+    remove(valor){
+        if(this.raiz)
+            this.raiz.remove(valor, null)
+    }
 }
 
 class TreeNode{
@@ -97,5 +102,39 @@ class TreeNode{
             this.esquerda.displayNode(myX, level + 1, -1, tree)
         if(this.direita != null)
             this.direita.displayNode(myX, level + 1, 1, tree)
+    }
+
+    getMinValue(){
+        if(this.esquerda)
+            return this.esquerda.getMinValue()
+        return this
+    }
+
+    remove(value, parent){
+        if(value > this.valor && this.direita)
+            this.direita.remove(value, this)
+        else if(value < this.valor && this.esquerda)
+            this.esquerda.remove(value, this)
+        else {
+            if(this.esquerda && this.direita){
+                this.valor = this.direita.getMinValue().valor
+                this.direita.remove(this.valor, this)
+            }
+            else if(!parent){
+                if(this.esquerda){
+                    this.valor = this.esquerda.valor
+                    this.direita = this.esquerda.direita
+                    this.esquerda = this.esquerda.esquerda
+                } else {
+                    this.valor = this.direita.valor
+                    this.direita = this.direita.direita
+                    this.esquerda = this.direita.esquerda
+                }
+            } else if(parent.esquerda == this){
+                parent.esquerda = this.esquerda ? this.esquerda : this.direita
+            } else if(parent.direita == this){
+                parent.direita = this.direita ? this.direita : this.esquerda
+            }
+        }
     }
 }

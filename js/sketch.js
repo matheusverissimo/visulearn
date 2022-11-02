@@ -88,7 +88,7 @@ function startArray(){
 }
 
 function startTree(){
-
+  canvasH -= 35
   var sketch = function(p){
 
     //Define a função para criar novo nó
@@ -107,6 +107,31 @@ function startTree(){
       for(let i = 0; i < initArray.length; i++){
         tree.addValue(initArray[i])
       }
+
+      let valor
+
+      let removerBtn = p.createButton('Remover')
+      removerBtn.class('placeTop')
+      removerBtn.mousePressed(() => {
+        tree.remove(valor)
+        p.redraw()
+      })
+
+      // Valor a ser inserido ou removido via controle
+      let inserirInput = p.createInput()
+      inserirInput.class('placeTop')
+      inserirInput.attribute('placeholder', 'Valor')
+      inserirInput.input(() => {
+        valor = parseInt(inserirInput.value())
+      })
+
+      // Botao para inserir valor do input
+      let inserirBtn = p.createButton('Inserir')
+      inserirBtn.class('placeTop')
+      inserirBtn.mousePressed(() => {
+        tree.addValue(valor)
+        p.redraw()
+      })
 
       //botao para executar codigo passado pelo usuario
       let updateBtn = p.createButton("Executar")

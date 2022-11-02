@@ -1,5 +1,4 @@
 (vetor, dados) => {
-    dados.selectedItemsIndex = []
     if(dados.i >= vetor.length){
       dados.complete = true
       return
@@ -10,7 +9,6 @@
     }
 
     if (dados.j > 0 && vetor[dados.j] < vetor[dados.j-1]) {
-      dados.selectedItemsIndex.push(dados.j, dados.j - 1)
       dados.numberOfComparisons++
       dados.midsorting = true;
 
