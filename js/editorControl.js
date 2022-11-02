@@ -99,6 +99,12 @@ let dsData = {
                         "Representa o objeto definido pelo usuário, onde os dados definidos são mantidos entre as execuções da função codificada."
                     ]
                 },
+                {
+                    name: "Controles: Desordenar e Ordenar",
+                    content: [
+                        "Pode ser utilizado para desordenar o vetor de forma aleatória, ou ordená-lo."
+                    ]
+                },
             ]
         }
     },

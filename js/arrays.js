@@ -55,6 +55,19 @@ class Array_ {
         this.p5.pop()
     }
 
+    sort(){
+        this.array.sort()
+        this.updateListItems()
+    }
+
+    shuffle(){
+        for (let i = this.array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.array[i], this.array[j]] = [this.array[j], this.array[i]];
+        }
+        this.updateListItems()
+    }
+
     getItemsWidth(){
         var w = 0
         for(let i of this.listItems) w += i.getWidth()

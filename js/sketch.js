@@ -7,7 +7,7 @@ function startArray(){
     p.list = null
 
     p.setup = function() {
-      canvasH -= 30
+      canvasH -= 35
       p.createCanvas(canvasW, canvasH)
       let arr = [3,8,5,3,8,1,3,9,7,6]
       list = new Array_(p, arr, canvasW, canvasH, true)
@@ -34,6 +34,14 @@ function startArray(){
         list.nextStep()
       })
 
+      //Para ordenar automaticamente
+      let unsortBtn = p.createButton('Desordenar')
+      unsortBtn.class('placeTop')
+      unsortBtn.mousePressed(() => {
+        list.shuffle()
+        list.redraw()
+      })
+
       //Para pegar input do usuario
       let vetorInputado = []
       let inputVetor = p.createInput()
@@ -48,6 +56,14 @@ function startArray(){
           vetorInputado = []
         list = new Array_(p, vetorInputado, canvasW, canvasH, true)
         list.setCustomUpdateFunc(window.nextFunc, window.customData)
+      })
+
+      //Para ordenar automaticamente
+      let sortBtn = p.createButton('Ordenar')
+      sortBtn.class('placeTop')
+      sortBtn.mousePressed(() => {
+        list.sort()
+        list.redraw()
       })
 
       p.frameRate(2)
