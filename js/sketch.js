@@ -60,6 +60,7 @@ function startArray(){
         else 
           vetorInputado = []
         array = new Array_(p, vetorInputado, canvasW, canvasH, true)
+        p.redraw()
       })
 
       //Para ordenar automaticamente
