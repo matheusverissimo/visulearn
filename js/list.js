@@ -69,10 +69,16 @@ class LinkedList {
     }
 
     display(){
+        this.doubleLinked ? this.displayDLinked() : this.displayLinked()
+    }
+
+    displayLinked(){
         let arr = this.arrayFromListNode()
         let spacing = this.p5.floor(this.width / (arr.length + 1))
         let arrowOffset = 10
-        let radius = 40
+        let boxWidth = this.width / (arr.length * 3)
+        if(boxWidth > 40)
+            boxWidth = 40
 
         for(let i = 0; i < arr.length; i++){
             this.p5.push()
@@ -86,37 +92,73 @@ class LinkedList {
             this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
             this.p5.textSize(20)
 
+            //ponteiro prox
+            let xBoxProx = x - (boxWidth / 2) + boxWidth
+            this.p5.rect(xBoxProx, y - (boxWidth / 2), boxWidth, boxWidth)
             //seta para prox
             if(i < arr.length - 1){
-                this.p5.line(x, y, xNext - (radius/2), y)
+                this.p5.line(xBoxProx + (boxWidth / 2), y, xNext - (boxWidth/2), y)
                 this.p5.line(
-                    xNext - (radius/2) - arrowOffset, 
+                    xNext - (boxWidth/2) - arrowOffset, 
                     y - arrowOffset, 
-                    xNext - (radius/2), 
+                    xNext - (boxWidth/2), 
                     y)
                 this.p5.line(
-                    xNext - (radius/2) - arrowOffset, 
+                    xNext - (boxWidth/2) - arrowOffset, 
                     y + arrowOffset, 
-                    xNext - (radius/2), 
+                    xNext - (boxWidth/2), 
                     y)
             }
 
-            //seta para anterior
-            if(this.doubleLinked && i > 0){
-                //this.p5.line(x, y, xNext - (radius/2), y)
-                this.p5.line(
-                    xPrev + (radius/2), 
-                    y, 
-                    xPrev + (radius/2) + arrowOffset, 
-                    y - arrowOffset)
-                    this.p5.line(
-                        xPrev + (radius/2), 
-                        y, 
-                        xPrev + (radius/2) + arrowOffset, 
-                        y + arrowOffset)
+            this.p5.rect(x - (boxWidth / 2), y - (boxWidth / 2), boxWidth, boxWidth)
+            this.p5.text(arr[i], x, y)
+
+            //se é o primeiro nó
+            if(i == 0){
+                this.p5.text("Cabeça", x, y + 35)
             }
 
-            this.p5.ellipse(x, y, radius)
+            this.p5.pop()
+        }
+    }
+
+    displayDLinked(){
+        let arr = this.arrayFromListNode()
+        let spacing = this.p5.floor(this.width / (arr.length + 1))
+        let arrowOffset = 10
+        let boxWidth = this.width / (arr.length * 3)
+        if(boxWidth > 30)
+            boxWidth = 30
+
+        for(let i = 0; i < arr.length; i++){
+            this.p5.push()
+
+            let x = spacing * (i + 1)
+            let y = this.height / 2
+
+            let xNext = spacing * (i + 2)
+            let xPrev = spacing * i
+
+            this.p5.textAlign(this.p5.CENTER, this.p5.CENTER)
+            this.p5.textSize(20)
+
+            //ponteiro anterior
+            let xBoxPrev = x - (boxWidth / 2) - boxWidth
+            this.p5.rect(xBoxPrev, y - (boxWidth / 2), boxWidth, boxWidth)
+
+            //ponteiro prox
+            let xBoxProx = x - (boxWidth / 2) + boxWidth
+            this.p5.rect(xBoxProx, y - (boxWidth / 2), boxWidth, boxWidth)
+            //seta para anterior
+            if(i > 0){
+                this.p5.line(xBoxPrev + (boxWidth / 2), y, xPrev + boxWidth, y)
+                this.p5.line(xBoxPrev + (boxWidth / 2), y, xBoxPrev + (boxWidth / 2) - arrowOffset, y - arrowOffset)
+                this.p5.line(xBoxPrev + (boxWidth / 2), y, xBoxPrev + (boxWidth / 2) - arrowOffset, y + arrowOffset)
+                this.p5.line(xPrev + boxWidth, y, xPrev + boxWidth + arrowOffset, y + arrowOffset)
+                this.p5.line(xPrev + boxWidth, y, xPrev + boxWidth + arrowOffset, y - arrowOffset)
+            }
+
+            this.p5.rect(x - (boxWidth / 2), y - (boxWidth / 2), boxWidth, boxWidth)
             this.p5.text(arr[i], x, y)
 
             //se é o primeiro nó
