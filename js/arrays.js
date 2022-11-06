@@ -56,7 +56,7 @@ class Array_ {
     }
 
     sort(){
-        this.array.sort()
+        this.array.sort((a,b) => a - b)
         this.updateListItems()
     }
 
